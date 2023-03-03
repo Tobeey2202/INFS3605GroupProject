@@ -19,6 +19,10 @@ public class Plant {
         this.geographicDistribution = geographicDistribution;
     }
 
+    public Plant(){
+
+    }
+
     //Standard Getters and Setters
     public String getPlantId() {
         return plantId;

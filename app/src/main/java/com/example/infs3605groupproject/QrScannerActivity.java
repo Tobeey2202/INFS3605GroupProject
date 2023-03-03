@@ -13,6 +13,7 @@ import androidx.core.content.ContextCompat;
 import androidx.lifecycle.LifecycleOwner;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Size;
@@ -31,6 +32,7 @@ public class QrScannerActivity extends AppCompatActivity {
     private PreviewView previewView;
     private ListenableFuture<ProcessCameraProvider> cameraProviderFuture;
     private String qrCode;
+    private boolean check = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,6 +108,10 @@ public class QrScannerActivity extends AppCompatActivity {
                 qrCode = _qrCode;
                 //qrCodeFoundButton.setVisibility(View.VISIBLE);
                 System.out.println("QR Code Found: " + qrCode + "\n \n \n");
+                if(check ==false){
+                    switchToPlantDetail();
+                    check = true;
+                }
             }
 
             @Override
@@ -117,4 +123,12 @@ public class QrScannerActivity extends AppCompatActivity {
 
         Camera camera = cameraProvider.bindToLifecycle((LifecycleOwner)this, cameraSelector, imageAnalysis, preview);
     }
+
+    public void switchToPlantDetail(){
+        System.out.println("Switching Attempted");
+        Intent intent = new Intent(QrScannerActivity.this, PlantDetailActivity.class);
+        intent.putExtra("QRCode", qrCode);
+        startActivity(intent);
+    }
+
 }
