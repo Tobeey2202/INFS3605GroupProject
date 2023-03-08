@@ -45,6 +45,12 @@ public class QrScannerActivity extends AppCompatActivity {
         requestCamera();
     }
 
+    @Override
+    public void onResume(){
+        super.onResume();
+        check = false;
+    }
+
     //Code adapted from: https://learntodroid.com/how-to-create-a-qr-code-scanner-app-in-android/
     private void requestCamera(){
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
@@ -108,9 +114,10 @@ public class QrScannerActivity extends AppCompatActivity {
                 qrCode = _qrCode;
                 //qrCodeFoundButton.setVisibility(View.VISIBLE);
                 System.out.println("QR Code Found: " + qrCode + "\n \n \n");
+                System.out.println("Check ==" + check);
                 if(check ==false){
-                    switchToPlantDetail();
                     check = true;
+                    switchToPlantDetail();
                 }
             }
 
@@ -128,6 +135,7 @@ public class QrScannerActivity extends AppCompatActivity {
         System.out.println("Switching Attempted");
         Intent intent = new Intent(QrScannerActivity.this, PlantDetailActivity.class);
         intent.putExtra("QRCode", qrCode);
+
         startActivity(intent);
     }
 
