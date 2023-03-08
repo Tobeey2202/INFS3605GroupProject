@@ -116,8 +116,9 @@ public class QrScannerActivity extends AppCompatActivity {
                 System.out.println("QR Code Found: " + qrCode + "\n \n \n");
                 System.out.println("Check ==" + check);
                 if(check ==false){
-                    check = true;
                     switchToPlantDetail();
+                    check = true;
+
                 }
             }
 
