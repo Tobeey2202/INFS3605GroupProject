@@ -1,4 +1,4 @@
-package com.example.infs3605groupproject;
+package com.example.infs3605groupproject.objects;
 
 public class User {
 
