@@ -137,6 +137,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     }
 
+    // Start authentication via Google
     private void googleLogin() {
         Intent intent = gsc.getSignInIntent();
         startActivityForResult(intent,RC_SIGN_IN);
