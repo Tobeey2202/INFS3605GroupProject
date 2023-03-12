@@ -18,6 +18,7 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Size;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.infs3605groupproject.QRCode.QRCodeFoundListener;
@@ -33,6 +34,11 @@ public class QrScannerActivity extends AppCompatActivity {
     private ListenableFuture<ProcessCameraProvider> cameraProviderFuture;
     private String qrCode;
     private boolean check = false;
+    private ImageButton homeButton;
+    private ImageButton mapButton;
+    private ImageButton codeButton;
+    private ImageButton profileButton;
+    private ImageButton settingsButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +49,67 @@ public class QrScannerActivity extends AppCompatActivity {
 
         cameraProviderFuture = ProcessCameraProvider.getInstance(this);
         requestCamera();
+
+        homeButton = findViewById(R.id.scannerHomeButton);
+
+        mapButton = findViewById(R.id.scannerMapButton);
+
+        codeButton = findViewById(R.id.scannerCodeButton);
+
+        profileButton = findViewById(R.id.scannerProfileButton);
+
+        settingsButton = findViewById(R.id.scannerSettingsButton);
+
+        homeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {clickedOnHomePage();}
+        });
+
+        mapButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {clickedOnMapPage();}
+        });
+
+        codeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {clickedOnCodePage();}
+        });
+
+        profileButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {clickedOnProfilePage();}
+        });
+
+        settingsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {clickedOnSettingsPage();}
+        });
+    }
+
+    public void clickedOnHomePage(){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void clickedOnMapPage(){
+        Intent intent = new Intent(this, MapActivity.class);
+        startActivity(intent);
+        System.out.print("map page works");
+    }
+
+    public void clickedOnCodePage(){
+        Intent intent = new Intent(this, QrScannerActivity.class);
+        startActivity(intent);
+    }
+
+    public void clickedOnProfilePage(){
+        Intent intent = new Intent(this, ProfileActivity.class);
+        startActivity(intent);
+    }
+
+    public void clickedOnSettingsPage(){
+        Intent intent = new Intent(this, SettingsActivity.class);
+        startActivity(intent);
     }
 
     @Override

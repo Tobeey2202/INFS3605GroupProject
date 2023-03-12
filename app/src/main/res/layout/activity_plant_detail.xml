@@ -2,17 +2,68 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/plantImage"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".PlantDetailActivity">
+
+    <ImageButton
+        android:id="@+id/detailSettingsButton"
+        android:layout_width="55dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toEndOf="@+id/detailProfileButton"
+        app:layout_constraintTop_toTopOf="@+id/detailHomeButton"
+        app:srcCompat="@drawable/_023_03_12_12_42_20" />
+
+    <ImageButton
+        android:id="@+id/detailHomeButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnPlay"
+        app:srcCompat="@drawable/_023_03_09_16_39_36" />
+
+    <ImageButton
+        android:id="@+id/detailMapButton"
+        android:layout_width="58dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toEndOf="@+id/detailHomeButton"
+        app:layout_constraintTop_toTopOf="@+id/detailHomeButton"
+        app:srcCompat="@drawable/_023_03_09_16_45_41" />
+
+    <ImageButton
+        android:id="@+id/detailCodeButton"
+        android:layout_width="58dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toEndOf="@+id/detailMapButton"
+        app:layout_constraintTop_toTopOf="@+id/detailHomeButton"
+        app:srcCompat="@drawable/_023_03_09_16_39_53" />
+
+    <ImageButton
+        android:id="@+id/detailProfileButton"
+        android:layout_width="56dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toEndOf="@+id/detailCodeButton"
+        app:layout_constraintTop_toTopOf="@+id/detailHomeButton"
+        app:srcCompat="@drawable/_023_03_09_16_41_17" />
 
     <TextView
         android:id="@+id/txtPlantName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="132dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="-20dp"
+        android:fontFamily="@font/radley"
         android:text="Name of Plant"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#4C7C5C"
+        android:textSize="40dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
@@ -30,10 +81,10 @@
         android:id="@+id/audioSeekbar"
         android:layout_width="229dp"
         android:layout_height="26dp"
-        android:layout_marginTop="208dp"
+        android:layout_marginTop="21dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtInfo" />
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
 
     <Button
         android:id="@+id/btnPlay"
@@ -48,7 +99,7 @@
         android:id="@+id/imageView4"
         android:layout_width="163dp"
         android:layout_height="164dp"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtPlantName"
@@ -60,6 +111,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="4dp"
+        android:fontFamily="@font/radley"
         android:text="Scientific Name"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         app:layout_constraintStart_toEndOf="@+id/imageView4"
@@ -71,58 +123,36 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="68dp"
+        android:fontFamily="@font/radley"
         android:text="Location on Campus"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         app:layout_constraintStart_toEndOf="@+id/imageView4"
         app:layout_constraintTop_toBottomOf="@+id/txtScientificName" />
 
-    <TextView
-        android:id="@+id/txtInfo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="40dp"
-        android:text="More Info:"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="348dp"
+        android:layout_height="225dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView4">
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:layout_width="410dp"
-        android:layout_height="76dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-        <ImageButton
-            android:id="@+id/homeButton"
-            android:layout_width="63dp"
-            android:layout_height="63dp"
-            app:srcCompat="@drawable/_023_03_09_16_39_36" />
+            <TextView
+                android:id="@+id/txtInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="40dp"
+                android:fontFamily="@font/radley"
+                android:text="More Info:"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+        </LinearLayout>
+    </ScrollView>
 
-        <ImageButton
-            android:id="@+id/mapButton"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            app:srcCompat="@drawable/_023_03_09_16_45_41" />
-
-        <ImageButton
-            android:id="@+id/codeButton"
-            android:layout_width="63dp"
-            android:layout_height="55dp"
-            app:srcCompat="@drawable/_023_03_09_16_39_53" />
-
-        <ImageButton
-            android:id="@+id/leaderboardButton"
-            android:layout_width="59dp"
-            android:layout_height="60dp"
-            app:srcCompat="@drawable/_023_03_09_16_40_31" />
-
-        <ImageButton
-            android:id="@+id/profileButton"
-            android:layout_width="58dp"
-            android:layout_height="59dp"
-            app:srcCompat="@drawable/_023_03_09_16_41_17" />
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
 </androidx.constraintlayout.widget.ConstraintLayout>

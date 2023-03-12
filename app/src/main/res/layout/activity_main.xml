@@ -6,22 +6,121 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="417dp"
+        android:layout_height="126dp"
+        android:layout_marginStart="-2dp"
+        android:layout_marginTop="-33dp"
+        android:contentDescription="background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/green_trail_background_pattern_snip" />
+
+    <TextView
+        android:id="@+id/txtPlantName2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="-20dp"
+        android:fontFamily="@font/radley"
+        android:text="Home"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#4C7C5C"
+        android:textSize="40sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <ImageButton
+        android:id="@+id/homeSettingsButton"
+        android:layout_width="55dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="20dp"
+        android:contentDescription="settings"
+        app:layout_constraintStart_toEndOf="@+id/homeProfileButton"
+        app:layout_constraintTop_toTopOf="@+id/homeHomeButton"
+        app:srcCompat="@drawable/_023_03_12_12_42_20" />
+
+    <ImageButton
+        android:id="@+id/homeProfileButton"
+        android:layout_width="56dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="20dp"
+        android:contentDescription="profile"
+        app:layout_constraintStart_toEndOf="@+id/homeCodeButton"
+        app:layout_constraintTop_toTopOf="@+id/homeHomeButton"
+        app:srcCompat="@drawable/_023_03_09_16_41_17" />
+
+    <ImageButton
+        android:id="@+id/homeCodeButton"
+        android:layout_width="58dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="20dp"
+        android:contentDescription="QR code"
+        app:layout_constraintStart_toEndOf="@+id/homeMapButton"
+        app:layout_constraintTop_toTopOf="@+id/homeHomeButton"
+        app:srcCompat="@drawable/_023_03_09_16_39_53" />
+
+    <ImageButton
+        android:id="@+id/homeMapButton"
+        android:layout_width="58dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="20dp"
+        android:contentDescription="maps"
+        app:layout_constraintStart_toEndOf="@+id/homeHomeButton"
+        app:layout_constraintTop_toTopOf="@+id/homeHomeButton"
+        app:srcCompat="@drawable/_023_03_09_16_45_41" />
+
+    <ImageButton
+        android:id="@+id/homeHomeButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="10dp"
+        android:contentDescription="home"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/_023_03_09_16_39_36" />
+
     <TextView
         android:id="@+id/welcomeMsg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
         android:fontFamily="@font/radley"
+        android:textColor="#4C7C5C"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
-    <Button
-        android:id="@+id/logoutButton"
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="252dp"
+        android:layout_height="355dp"
+        android:layout_marginStart="81dp"
+        android:layout_marginTop="36dp"
+        android:fontFamily="@font/radley"
+        android:text="Quote of the Day........................................................................................................."
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleQuote" />
+
+    <TextView
+        android:id="@+id/titleQuote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Logout"
+        android:layout_marginTop="104dp"
+        android:fontFamily="@font/radley"
+        android:text="QUOTE OF THE DAY"
+        android:textColor="#000000"
+        android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtPlantName2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

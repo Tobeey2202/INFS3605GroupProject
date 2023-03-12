@@ -7,7 +7,9 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -24,11 +26,26 @@ public class PlantDetailActivity extends AppCompatActivity{
     boolean wasPlaying = false;
     private Button btnPlay;
     private Handler myHandler = new Handler();
+    private ImageButton homeButton;
+    private ImageButton mapButton;
+    private ImageButton codeButton;
+    private ImageButton profileButton;
+    private ImageButton settingsButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plant_detail);
+
+        homeButton = findViewById(R.id.detailHomeButton);
+
+        mapButton = findViewById(R.id.detailMapButton);
+
+        codeButton = findViewById(R.id.detailCodeButton);
+
+        profileButton = findViewById(R.id.detailProfileButton);
+
+        settingsButton = findViewById(R.id.detailSettingsButton);
 
         //Fetch the key from the QR Code
         Intent intent = getIntent();
@@ -46,9 +63,6 @@ public class PlantDetailActivity extends AppCompatActivity{
 
         plantName = findViewById(R.id.txtPlantName);
         plantName.setText(selectedPlant.getPlantNameScientific());
-
-
-
 
         seekBar = findViewById(R.id.audioSeekbar);
 
@@ -85,7 +99,56 @@ public class PlantDetailActivity extends AppCompatActivity{
         playSong();
         System.out.println("herro");
 
+        homeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {clickedOnHomePage();}
+        });
 
+        mapButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {clickedOnMapPage();}
+        });
+
+        codeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {clickedOnCodePage();}
+        });
+
+        profileButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {clickedOnProfilePage();}
+        });
+
+        settingsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {clickedOnSettingsPage();}
+        });
+    }
+
+    public void clickedOnHomePage(){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void clickedOnMapPage(){
+        Intent intent = new Intent(this, MapActivity.class);
+        startActivity(intent);
+        System.out.print("map page works");
+    }
+
+    public void clickedOnCodePage(){
+        Intent intent = new Intent(this, QrScannerActivity.class);
+        startActivity(intent);
+    }
+
+    public void clickedOnProfilePage(){
+        Intent intent = new Intent(this, ProfileActivity.class);
+        startActivity(intent);
+    }
+
+    public void clickedOnSettingsPage(){
+        Intent intent = new Intent(this, SettingsActivity.class);
+        startActivity(intent);
     }
 
     public void playSong() {
@@ -100,7 +163,6 @@ public class PlantDetailActivity extends AppCompatActivity{
 
 
             }
-
 
             if (!wasPlaying) {
 
@@ -138,8 +200,6 @@ public class PlantDetailActivity extends AppCompatActivity{
 
     };
 
-
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -151,7 +211,4 @@ public class PlantDetailActivity extends AppCompatActivity{
         mediaPlayer.release();
         mediaPlayer = null;
     }
-
-
-
 }

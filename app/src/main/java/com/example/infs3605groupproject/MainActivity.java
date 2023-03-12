@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.google.android.gms.auth.api.Auth;
@@ -24,6 +25,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private Button logoutButton;
     private TextView welcomeMsg;
+    private ImageButton homeButton;
+    private ImageButton mapButton;
+    private ImageButton codeButton;
+    private ImageButton profileButton;
+    private ImageButton settingsButton;
+
     GoogleSignInOptions gso;
     GoogleSignInClient gsc;
 
@@ -37,10 +44,47 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         logoutButton = findViewById(R.id.logoutButton);
         logoutButton.setOnClickListener(this);
 
+        logoutButton = findViewById(R.id.logoutButton);
+
+        homeButton = findViewById(R.id.homeHomeButton);
+
+        mapButton = findViewById(R.id.homeMapButton);
+
+        codeButton = findViewById(R.id.homeCodeButton);
+
+        profileButton = findViewById(R.id.homeProfileButton);
+
+        settingsButton = findViewById(R.id.homeSettingsButton);
+
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .build();
         gsc = GoogleSignIn.getClient(this,gso);
+
+        homeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {clickedOnHomePage();}
+        });
+
+        mapButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {clickedOnMapPage();}
+        });
+
+        codeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {clickedOnCodePage();}
+        });
+
+        profileButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {clickedOnProfilePage();}
+        });
+
+        settingsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {clickedOnSettingsPage();}
+        });
 
         // Retrieving user information from firebase database
         DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("Users")
@@ -61,6 +105,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 logoutUser();
                 break;
         }
+    }
+
+    public void clickedOnHomePage(){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void clickedOnMapPage(){
+        Intent intent = new Intent(this, MapActivity.class);
+        startActivity(intent);
+        System.out.print("map page works");
+    }
+
+    public void clickedOnCodePage(){
+        Intent intent = new Intent(this, QrScannerActivity.class);
+        startActivity(intent);
+    }
+
+    public void clickedOnProfilePage(){
+        Intent intent = new Intent(this, ProfileActivity.class);
+        startActivity(intent);
+    }
+
+    public void clickedOnSettingsPage(){
+        Intent intent = new Intent(this, SettingsActivity.class);
+        startActivity(intent);
     }
 
     private void logoutUser() {

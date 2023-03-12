@@ -6,16 +6,52 @@
     android:layout_height="match_parent"
     tools:context=".QrScannerActivity">
 
+    <ImageButton
+        android:id="@+id/scannerHomeButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_main_previewView"
+        app:srcCompat="@drawable/_023_03_09_16_39_36" />
+
+    <ImageButton
+        android:id="@+id/scannerMapButton"
+        android:layout_width="58dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toEndOf="@+id/scannerHomeButton"
+        app:layout_constraintTop_toTopOf="@+id/scannerHomeButton"
+        app:srcCompat="@drawable/_023_03_09_16_45_41" />
+
+    <ImageButton
+        android:id="@+id/scannerCodeButton"
+        android:layout_width="58dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toEndOf="@+id/scannerMapButton"
+        app:layout_constraintTop_toTopOf="@+id/scannerHomeButton"
+        app:srcCompat="@drawable/_023_03_09_16_39_53" />
+
+    <ImageButton
+        android:id="@+id/scannerProfileButton"
+        android:layout_width="56dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toEndOf="@+id/scannerCodeButton"
+        app:layout_constraintTop_toTopOf="@+id/scannerHomeButton"
+        app:srcCompat="@drawable/_023_03_09_16_41_17" />
+
     <androidx.camera.view.PreviewView
         android:id="@+id/activity_main_previewView"
         android:layout_width="373dp"
         android:layout_height="511dp"
         android:layout_marginStart="19dp"
-        android:layout_marginTop="21dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="19dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
+        app:layout_constraintTop_toBottomOf="@+id/txtCodeName">
 
     </androidx.camera.view.PreviewView>
 
@@ -30,52 +66,26 @@
         app:srcCompat="@drawable/green_trail_background_pattern_snip" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/txtCodeName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="124dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="-20dp"
+        android:fontFamily="@font/radley"
         android:text="Scan a QR Code"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#4C7C5C"
+        android:textSize="40dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:layout_width="410dp"
-        android:layout_height="76dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <ImageButton
-            android:id="@+id/homeButton"
-            android:layout_width="63dp"
-            android:layout_height="63dp"
-            app:srcCompat="@drawable/_023_03_09_16_39_36" />
-
-        <ImageButton
-            android:id="@+id/mapButton"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            app:srcCompat="@drawable/_023_03_09_16_45_41" />
-
-        <ImageButton
-            android:id="@+id/codeButton"
-            android:layout_width="63dp"
-            android:layout_height="55dp"
-            app:srcCompat="@drawable/_023_03_09_16_39_53" />
-
-        <ImageButton
-            android:id="@+id/leaderboardButton"
-            android:layout_width="59dp"
-            android:layout_height="60dp"
-            app:srcCompat="@drawable/_023_03_09_16_40_31" />
-
-        <ImageButton
-            android:id="@+id/profileButton"
-            android:layout_width="58dp"
-            android:layout_height="59dp"
-            app:srcCompat="@drawable/_023_03_09_16_41_17" />
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
+    <ImageButton
+        android:id="@+id/scannerSettingsButton"
+        android:layout_width="55dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toEndOf="@+id/scannerProfileButton"
+        app:layout_constraintTop_toTopOf="@+id/scannerHomeButton"
+        app:srcCompat="@drawable/_023_03_12_12_42_20" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
