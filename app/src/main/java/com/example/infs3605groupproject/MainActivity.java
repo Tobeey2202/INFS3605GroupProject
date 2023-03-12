@@ -23,7 +23,6 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button logoutButton;
     private TextView welcomeMsg;
     private ImageButton homeButton;
     private ImageButton mapButton;
@@ -31,20 +30,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ImageButton profileButton;
     private ImageButton settingsButton;
 
-    GoogleSignInOptions gso;
-    GoogleSignInClient gsc;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         welcomeMsg = findViewById(R.id.welcomeMsg);
-
-        logoutButton = findViewById(R.id.logoutButton);
-        logoutButton.setOnClickListener(this);
-
-        logoutButton = findViewById(R.id.logoutButton);
 
         homeButton = findViewById(R.id.homeHomeButton);
 
@@ -55,11 +46,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         profileButton = findViewById(R.id.homeProfileButton);
 
         settingsButton = findViewById(R.id.homeSettingsButton);
-
-        gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestEmail()
-                .build();
-        gsc = GoogleSignIn.getClient(this,gso);
 
         homeButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,11 +86,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.logoutButton:
-                logoutUser();
-                break;
-        }
+
     }
 
     public void clickedOnHomePage(){
@@ -133,13 +115,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startActivity(intent);
     }
 
-    private void logoutUser() {
-        gsc.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                finish();
-                startActivity(new Intent(MainActivity.this,LoginActivity.class));
-            }
-        });
-    }
 }
