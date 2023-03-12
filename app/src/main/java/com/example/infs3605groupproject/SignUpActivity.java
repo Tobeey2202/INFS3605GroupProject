@@ -21,10 +21,11 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class SignUpActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private EditText nameField, emailField, passwordField;
+    private EditText nameField, emailField, phoneField, suburbField, passwordField;
     private Button saveButton;
     private ProgressBar progressBar;
     private FirebaseAuth mAuth;
+    private String name, email ,phone ,suburb, password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,8 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
         nameField = findViewById(R.id.nameField);
         emailField = findViewById(R.id.emailField);
+        phoneField = findViewById(R.id.phoneField);
+        suburbField = findViewById(R.id.suburbField);
         passwordField = findViewById(R.id.passwordField);
 
         progressBar = findViewById(R.id.progressBar);
@@ -55,9 +58,11 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
     // Present error messages required
     private void registerUser() {
-        String email = emailField.getText().toString().trim();
-        String name = nameField.getText().toString().trim();
-        String password = passwordField.getText().toString().trim();
+        email = emailField.getText().toString().trim();
+        name = nameField.getText().toString().trim();
+        phone = phoneField.getText().toString().trim();
+        suburb = suburbField.getText().toString().trim();
+        password = passwordField.getText().toString().trim();
 
         if(name.isEmpty()) {
             nameField.setError("Full name required!");
@@ -89,6 +94,17 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             return;
         }
 
+        if(phone.isEmpty()) {
+            phone = "Not provided";
+            return;
+        }
+
+        if(suburb.isEmpty()) {
+            suburbField.setError("Suburb required!");
+            suburbField.requestFocus();
+            return;
+        }
+
         // Create user in firebase database
         progressBar.setVisibility(View.VISIBLE);
         mAuth.createUserWithEmailAndPassword(email,password)
@@ -96,7 +112,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()) {
-                            User user = new User(name,email);
+                            User user = new User(name,email,suburb,phone);
                             FirebaseDatabase.getInstance().getReference("Users")
                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                     .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
