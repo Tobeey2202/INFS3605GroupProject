@@ -49,7 +49,7 @@ public class PlantDetailActivity extends AppCompatActivity{
         Intent intent = getIntent();
         String value = intent.getStringExtra("QRCode");
 
-        ArrayList<Plant> plantList =Trail.generatePlantList();
+        ArrayList<Plant> plantList = Trail.generatePlantList();
 
         Plant selectedPlant = new Plant();
         for(Plant p : plantList){
@@ -148,12 +148,9 @@ public class PlantDetailActivity extends AppCompatActivity{
                 clearMediaPlayer();
                 seekBar.setProgress(0);
                 wasPlaying = true;
-
-
             }
 
             if (!wasPlaying) {
-
                 if (mediaPlayer == null) {
                     mediaPlayer = new MediaPlayer();
                 }
@@ -163,7 +160,7 @@ public class PlantDetailActivity extends AppCompatActivity{
                         "raw", getPackageName()));
 
 
-//                mediaPlayer.prepare();
+                mediaPlayer.prepare();
 //                mediaPlayer.setVolume(0.5f, 0.5f);
                 mediaPlayer.setLooping(false);
                 seekBar.setMax(mediaPlayer.getDuration());
