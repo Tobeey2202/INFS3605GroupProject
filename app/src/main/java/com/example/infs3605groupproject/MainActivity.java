@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ImageButton mapButton;
     private ImageButton codeButton;
     private ImageButton profileButton;
-    private ImageButton settingsButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +43,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         codeButton = findViewById(R.id.homeCodeButton);
 
         profileButton = findViewById(R.id.homeProfileButton);
-
-        settingsButton = findViewById(R.id.homeSettingsButton);
 
         homeButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,11 +62,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         profileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {clickedOnProfilePage();}
-        });
-
-        settingsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {clickedOnSettingsPage();}
         });
 
         // Retrieving user information from firebase database
@@ -107,11 +99,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void clickedOnProfilePage(){
         Intent intent = new Intent(this, ProfileActivity.class);
-        startActivity(intent);
-    }
-
-    public void clickedOnSettingsPage(){
-        Intent intent = new Intent(this, SettingsActivity.class);
         startActivity(intent);
     }
 

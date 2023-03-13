@@ -8,20 +8,12 @@
     tools:context=".PlantDetailActivity">
 
     <ImageButton
-        android:id="@+id/detailSettingsButton"
-        android:layout_width="55dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="20dp"
-        app:layout_constraintStart_toEndOf="@+id/detailProfileButton"
-        app:layout_constraintTop_toTopOf="@+id/detailHomeButton"
-        app:srcCompat="@drawable/_023_03_12_12_42_20" />
-
-    <ImageButton
         android:id="@+id/detailHomeButton"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="48dp"
         android:layout_marginTop="10dp"
+        android:contentDescription="home button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnPlay"
         app:srcCompat="@drawable/_023_03_09_16_39_36" />
@@ -30,7 +22,8 @@
         android:id="@+id/detailMapButton"
         android:layout_width="58dp"
         android:layout_height="54dp"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="30dp"
+        android:contentDescription="map button"
         app:layout_constraintStart_toEndOf="@+id/detailHomeButton"
         app:layout_constraintTop_toTopOf="@+id/detailHomeButton"
         app:srcCompat="@drawable/_023_03_09_16_45_41" />
@@ -39,7 +32,8 @@
         android:id="@+id/detailCodeButton"
         android:layout_width="58dp"
         android:layout_height="57dp"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="30dp"
+        android:contentDescription="code button"
         app:layout_constraintStart_toEndOf="@+id/detailMapButton"
         app:layout_constraintTop_toTopOf="@+id/detailHomeButton"
         app:srcCompat="@drawable/_023_03_09_16_39_53" />
@@ -48,7 +42,8 @@
         android:id="@+id/detailProfileButton"
         android:layout_width="56dp"
         android:layout_height="55dp"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="30dp"
+        android:contentDescription="profile button"
         app:layout_constraintStart_toEndOf="@+id/detailCodeButton"
         app:layout_constraintTop_toTopOf="@+id/detailHomeButton"
         app:srcCompat="@drawable/_023_03_09_16_41_17" />
@@ -81,7 +76,7 @@
         android:id="@+id/audioSeekbar"
         android:layout_width="229dp"
         android:layout_height="26dp"
-        android:layout_marginTop="21dp"
+        android:layout_marginTop="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
@@ -90,6 +85,7 @@
         android:id="@+id/btnPlay"
         android:layout_width="58dp"
         android:layout_height="50dp"
+        android:contentDescription="audio button"
         app:icon="@android:drawable/ic_media_play"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

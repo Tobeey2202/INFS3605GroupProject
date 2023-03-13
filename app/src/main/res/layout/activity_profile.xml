@@ -6,24 +6,139 @@
     android:layout_height="match_parent"
     tools:context=".ProfileActivity">
 
+    <ImageButton
+        android:id="@+id/profileHomeButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="25dp"
+        android:contentDescription="home button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logoutButton"
+        app:srcCompat="@drawable/_023_03_09_16_39_36" />
+
+    <ImageButton
+        android:id="@+id/profileMapButton"
+        android:layout_width="58dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="30dp"
+        android:contentDescription="map button"
+        app:layout_constraintStart_toEndOf="@+id/profileHomeButton"
+        app:layout_constraintTop_toTopOf="@+id/profileHomeButton"
+        app:srcCompat="@drawable/_023_03_09_16_45_41" />
+
+    <ImageButton
+        android:id="@+id/profileCodeButton"
+        android:layout_width="58dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="30dp"
+        android:contentDescription="code button"
+        app:layout_constraintStart_toEndOf="@+id/profileMapButton"
+        app:layout_constraintTop_toTopOf="@+id/profileHomeButton"
+        app:srcCompat="@drawable/_023_03_09_16_39_53" />
+
+    <ImageButton
+        android:id="@+id/profileProfileButton"
+        android:layout_width="56dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="30dp"
+        android:contentDescription="profile button"
+        app:layout_constraintStart_toEndOf="@+id/profileCodeButton"
+        app:layout_constraintTop_toTopOf="@+id/profileHomeButton"
+        app:srcCompat="@drawable/_023_03_09_16_41_17" />
+
+    <TextView
+        android:id="@+id/txtScientificName2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/radley"
+        android:text="Username"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/profilePicture"
+        app:layout_constraintTop_toBottomOf="@+id/titleProfile" />
+
+    <ImageView
+        android:id="@+id/profilePicture"
+        android:layout_width="163dp"
+        android:layout_height="164dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:contentDescription="profile picture"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleProfile"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/titleProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="144dp"
+        android:layout_marginTop="-20dp"
+        android:fontFamily="@font/radley"
+        android:text="Profile"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#4C7C5C"
+        android:textSize="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="417dp"
+        android:layout_height="126dp"
+        android:layout_marginStart="-2dp"
+        android:layout_marginTop="-33dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/green_trail_background_pattern_snip" />
+
     <Button
         android:id="@+id/logoutButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="104dp"
         android:fontFamily="@font/radley"
         android:text="@string/logout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/radley"
+        android:text="POINTS"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="171dp"
-        android:layout_marginTop="277dp"
-        android:text="profile"
+        android:layout_marginStart="98dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/radley"
+        android:text="*Number"
+        android:textSize="50sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="85dp"
+        android:layout_marginTop="45dp"
+        android:contentDescription="rating bar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profilePicture" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

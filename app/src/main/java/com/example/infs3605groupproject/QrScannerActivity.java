@@ -38,7 +38,6 @@ public class QrScannerActivity extends AppCompatActivity {
     private ImageButton mapButton;
     private ImageButton codeButton;
     private ImageButton profileButton;
-    private ImageButton settingsButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,8 +57,6 @@ public class QrScannerActivity extends AppCompatActivity {
 
         profileButton = findViewById(R.id.scannerProfileButton);
 
-        settingsButton = findViewById(R.id.scannerSettingsButton);
-
         homeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {clickedOnHomePage();}
@@ -78,11 +75,6 @@ public class QrScannerActivity extends AppCompatActivity {
         profileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {clickedOnProfilePage();}
-        });
-
-        settingsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {clickedOnSettingsPage();}
         });
     }
 
@@ -104,11 +96,6 @@ public class QrScannerActivity extends AppCompatActivity {
 
     public void clickedOnProfilePage(){
         Intent intent = new Intent(this, ProfileActivity.class);
-        startActivity(intent);
-    }
-
-    public void clickedOnSettingsPage(){
-        Intent intent = new Intent(this, SettingsActivity.class);
         startActivity(intent);
     }
 

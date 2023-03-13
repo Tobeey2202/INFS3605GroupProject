@@ -26,6 +26,10 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     private Button logoutButton;
     GoogleSignInOptions gso;
     GoogleSignInClient gsc;
+    private ImageButton homeButton;
+    private ImageButton mapButton;
+    private ImageButton codeButton;
+    private ImageButton profileButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +44,33 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 .build();
         gsc = GoogleSignIn.getClient(this,gso);
 
+        homeButton = findViewById(R.id.profileHomeButton);
+
+        mapButton = findViewById(R.id.profileMapButton);
+
+        codeButton = findViewById(R.id.profileCodeButton);
+
+        profileButton = findViewById(R.id.profileProfileButton);
+
+        homeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {clickedOnHomePage();}
+        });
+
+        mapButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {clickedOnMapPage();}
+        });
+
+        codeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {clickedOnCodePage();}
+        });
+
+        profileButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {clickedOnProfilePage();}
+        });
     }
 
     @Override
@@ -59,5 +90,26 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 startActivity(new Intent(ProfileActivity.this,LoginActivity.class));
             }
         });
+    }
+
+    public void clickedOnHomePage(){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void clickedOnMapPage(){
+        Intent intent = new Intent(this, MapActivity.class);
+        startActivity(intent);
+        System.out.print("map page works");
+    }
+
+    public void clickedOnCodePage(){
+        Intent intent = new Intent(this, QrScannerActivity.class);
+        startActivity(intent);
+    }
+
+    public void clickedOnProfilePage(){
+        Intent intent = new Intent(this, ProfileActivity.class);
+        startActivity(intent);
     }
 }

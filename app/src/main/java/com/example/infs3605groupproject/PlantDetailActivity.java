@@ -30,7 +30,7 @@ public class PlantDetailActivity extends AppCompatActivity{
     private ImageButton mapButton;
     private ImageButton codeButton;
     private ImageButton profileButton;
-    private ImageButton settingsButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +44,6 @@ public class PlantDetailActivity extends AppCompatActivity{
         codeButton = findViewById(R.id.detailCodeButton);
 
         profileButton = findViewById(R.id.detailProfileButton);
-
-        settingsButton = findViewById(R.id.detailSettingsButton);
 
         //Fetch the key from the QR Code
         Intent intent = getIntent();
@@ -118,11 +116,6 @@ public class PlantDetailActivity extends AppCompatActivity{
             @Override
             public void onClick(View view) {clickedOnProfilePage();}
         });
-
-        settingsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {clickedOnSettingsPage();}
-        });
     }
 
     public void clickedOnHomePage(){
@@ -143,11 +136,6 @@ public class PlantDetailActivity extends AppCompatActivity{
 
     public void clickedOnProfilePage(){
         Intent intent = new Intent(this, ProfileActivity.class);
-        startActivity(intent);
-    }
-
-    public void clickedOnSettingsPage(){
-        Intent intent = new Intent(this, SettingsActivity.class);
         startActivity(intent);
     }
 
