@@ -14,6 +14,7 @@
         android:layout_marginStart="48dp"
         android:layout_marginTop="10dp"
         android:contentDescription="home button"
+        app:layout_constraintEnd_toStartOf="@+id/detailMapButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnPlay"
         app:srcCompat="@drawable/_023_03_09_16_39_36" />
@@ -22,8 +23,8 @@
         android:id="@+id/detailMapButton"
         android:layout_width="58dp"
         android:layout_height="54dp"
-        android:layout_marginStart="30dp"
         android:contentDescription="map button"
+        app:layout_constraintEnd_toStartOf="@+id/detailCodeButton"
         app:layout_constraintStart_toEndOf="@+id/detailHomeButton"
         app:layout_constraintTop_toTopOf="@+id/detailHomeButton"
         app:srcCompat="@drawable/_023_03_09_16_45_41" />
@@ -32,8 +33,8 @@
         android:id="@+id/detailCodeButton"
         android:layout_width="58dp"
         android:layout_height="57dp"
-        android:layout_marginStart="30dp"
         android:contentDescription="code button"
+        app:layout_constraintEnd_toStartOf="@+id/detailProfileButton"
         app:layout_constraintStart_toEndOf="@+id/detailMapButton"
         app:layout_constraintTop_toTopOf="@+id/detailHomeButton"
         app:srcCompat="@drawable/_023_03_09_16_39_53" />
@@ -42,8 +43,9 @@
         android:id="@+id/detailProfileButton"
         android:layout_width="56dp"
         android:layout_height="55dp"
-        android:layout_marginStart="30dp"
+        android:layout_marginEnd="48dp"
         android:contentDescription="profile button"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/detailCodeButton"
         app:layout_constraintTop_toTopOf="@+id/detailHomeButton"
         app:srcCompat="@drawable/_023_03_09_16_41_17" />
@@ -53,14 +55,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="76dp"
-        android:layout_marginTop="-20dp"
+        android:layout_marginTop="77dp"
         android:fontFamily="@font/radley"
         android:text="Name of Plant"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#4C7C5C"
         android:textSize="40dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView3"
