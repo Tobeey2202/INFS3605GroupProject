@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/taskBarConstraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".Fragments.BlankFragment">
+
+    <ImageButton
+        android:id="@+id/detailHomeButton2"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="5dp"
+        android:contentDescription="home button"
+        app:layout_constraintEnd_toStartOf="@id/detailMapButton2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/_023_03_09_16_39_36" />
+
+    <ImageButton
+        android:id="@+id/detailCodeButton2"
+        android:layout_width="58dp"
+        android:layout_height="57dp"
+        android:contentDescription="code button"
+        app:layout_constraintEnd_toStartOf="@id/detailProfileButton2"
+        app:layout_constraintStart_toEndOf="@id/detailMapButton2"
+        app:layout_constraintTop_toTopOf="@id/detailHomeButton2"
+        app:srcCompat="@drawable/_023_03_09_16_39_53" />
+
+    <ImageButton
+        android:id="@+id/detailProfileButton2"
+        android:layout_width="56dp"
+        android:layout_height="55dp"
+        android:layout_marginEnd="44dp"
+        android:contentDescription="profile button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/detailCodeButton2"
+        app:layout_constraintTop_toTopOf="@id/detailHomeButton2"
+        app:srcCompat="@drawable/_023_03_09_16_41_17" />
+
+    <ImageButton
+        android:id="@+id/detailMapButton2"
+        android:layout_width="58dp"
+        android:layout_height="54dp"
+        android:contentDescription="map button"
+        app:layout_constraintEnd_toStartOf="@id/detailCodeButton2"
+        app:layout_constraintStart_toEndOf="@id/detailHomeButton2"
+        app:layout_constraintTop_toTopOf="@id/detailHomeButton2"
+        app:srcCompat="@drawable/_023_03_09_16_45_41" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

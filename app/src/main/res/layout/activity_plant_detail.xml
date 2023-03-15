@@ -7,49 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".PlantDetailActivity">
 
-    <ImageButton
-        android:id="@+id/detailHomeButton"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="10dp"
-        android:contentDescription="home button"
-        app:layout_constraintEnd_toStartOf="@+id/detailMapButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnPlay"
-        app:srcCompat="@drawable/_023_03_09_16_39_36" />
-
-    <ImageButton
-        android:id="@+id/detailMapButton"
-        android:layout_width="58dp"
-        android:layout_height="54dp"
-        android:contentDescription="map button"
-        app:layout_constraintEnd_toStartOf="@+id/detailCodeButton"
-        app:layout_constraintStart_toEndOf="@+id/detailHomeButton"
-        app:layout_constraintTop_toTopOf="@+id/detailHomeButton"
-        app:srcCompat="@drawable/_023_03_09_16_45_41" />
-
-    <ImageButton
-        android:id="@+id/detailCodeButton"
-        android:layout_width="58dp"
-        android:layout_height="57dp"
-        android:contentDescription="code button"
-        app:layout_constraintEnd_toStartOf="@+id/detailProfileButton"
-        app:layout_constraintStart_toEndOf="@+id/detailMapButton"
-        app:layout_constraintTop_toTopOf="@+id/detailHomeButton"
-        app:srcCompat="@drawable/_023_03_09_16_39_53" />
-
-    <ImageButton
-        android:id="@+id/detailProfileButton"
-        android:layout_width="56dp"
-        android:layout_height="55dp"
-        android:layout_marginEnd="48dp"
-        android:contentDescription="profile button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/detailCodeButton"
-        app:layout_constraintTop_toTopOf="@+id/detailHomeButton"
-        app:srcCompat="@drawable/_023_03_09_16_41_17" />
-
     <TextView
         android:id="@+id/txtPlantName"
         android:layout_width="wrap_content"
@@ -152,5 +109,21 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
         </LinearLayout>
     </ScrollView>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView"
+        android:name="com.example.infs3605groupproject.Fragments.BlankFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="409dp"
+        android:layout_height="81dp"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="649dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

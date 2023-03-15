@@ -37,13 +37,13 @@ public class PlantDetailActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plant_detail);
 
-        homeButton = findViewById(R.id.detailHomeButton);
-
-        mapButton = findViewById(R.id.detailMapButton);
-
-        codeButton = findViewById(R.id.detailCodeButton);
-
-        profileButton = findViewById(R.id.detailProfileButton);
+//        homeButton = findViewById(R.id.detailHomeButton);
+//
+//        mapButton = findViewById(R.id.detailMapButton);
+//
+//        codeButton = findViewById(R.id.detailCodeButton);
+//
+//        profileButton = findViewById(R.id.detailProfileButton);
         btnPlay = findViewById(R.id.btnPlay);
 
         //Fetch the key from the QR Code
@@ -94,25 +94,25 @@ public class PlantDetailActivity extends AppCompatActivity{
         });
 
 
-        homeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {clickedOnHomePage();}
-        });
-
-        mapButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {clickedOnMapPage();}
-        });
-
-        codeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {clickedOnCodePage();}
-        });
-
-        profileButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {clickedOnProfilePage();}
-        });
+//        homeButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {clickedOnHomePage();}
+//        });
+//
+//        mapButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {clickedOnMapPage();}
+//        });
+//
+//        codeButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {clickedOnCodePage();}
+//        });
+//
+//        profileButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {clickedOnProfilePage();}
+//        });
     }
 
     public void clickedOnHomePage(){
