@@ -10,9 +10,11 @@
         android:id="@+id/scannerHomeButton"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginStart="41dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="30dp"
         android:contentDescription="home button"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/activity_main_previewView"
         app:srcCompat="@drawable/_023_03_09_16_39_36" />
@@ -42,15 +44,17 @@
         android:layout_width="56dp"
         android:layout_height="55dp"
         android:layout_marginStart="30dp"
+        android:layout_marginEnd="41dp"
         android:contentDescription="profile button"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/scannerCodeButton"
         app:layout_constraintTop_toTopOf="@+id/scannerHomeButton"
         app:srcCompat="@drawable/_023_03_09_16_41_17" />
 
     <androidx.camera.view.PreviewView
         android:id="@+id/activity_main_previewView"
-        android:layout_width="373dp"
-        android:layout_height="500dp"
+        android:layout_width="376dp"
+        android:layout_height="466dp"
         android:layout_marginStart="19dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="19dp"
