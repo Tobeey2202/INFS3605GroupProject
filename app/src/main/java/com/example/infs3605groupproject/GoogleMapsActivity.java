@@ -88,6 +88,11 @@ public class GoogleMapsActivity extends AppCompatActivity implements GoogleMap.O
 //                .rotateGesturesEnabled(true)
 //                .tiltGesturesEnabled(true);
 
+        LatLng plant1 = new LatLng(-33.917237, 151.230294);
+        mMap.addMarker(new MarkerOptions()
+                .position(plant1)
+                .title("Plant 1"));
+
     }
 
 
