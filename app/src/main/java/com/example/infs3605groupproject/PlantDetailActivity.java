@@ -1,8 +1,8 @@
 package com.example.infs3605groupproject;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -17,10 +17,12 @@ import com.example.infs3605groupproject.objects.Plant;
 import com.example.infs3605groupproject.objects.Trail;
 
 import java.util.ArrayList;
-import java.util.concurrent.TimeUnit;
 
 public class PlantDetailActivity extends AppCompatActivity{
-    private TextView plantName;
+    private TextView scientificPlantName;
+    private TextView regularPlantName;
+    private TextView location;
+    private TextView description;
     private SeekBar seekBar;
     private MediaPlayer mediaPlayer;
     boolean wasPlaying = false;
@@ -32,6 +34,7 @@ public class PlantDetailActivity extends AppCompatActivity{
     private ImageButton profileButton;
 
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,8 +62,17 @@ public class PlantDetailActivity extends AppCompatActivity{
             }
         }
 
-        plantName = findViewById(R.id.txtPlantName);
-        plantName.setText(selectedPlant.getPlantNameScientific());
+        scientificPlantName = findViewById(R.id.scientificPlantName);
+        scientificPlantName.setText(selectedPlant.getPlantNameScientific());
+
+        regularPlantName = findViewById(R.id.regularPlantName);
+        regularPlantName.setText(selectedPlant.getPlantNameRegular());
+
+        location = findViewById(R.id.locationOfPlant);
+        location.setText(selectedPlant.getPlantNameScientific());
+
+        description = findViewById(R.id.description);
+        description.setText(selectedPlant.getDescription());
 
         seekBar = findViewById(R.id.audioSeekbar);
 
