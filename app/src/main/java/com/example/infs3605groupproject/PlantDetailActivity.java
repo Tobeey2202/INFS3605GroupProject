@@ -31,7 +31,7 @@ public class PlantDetailActivity extends AppCompatActivity{
     private ImageButton codeButton;
     private ImageButton profileButton;
 
-
+    public static int oneTimeOnly =0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +44,7 @@ public class PlantDetailActivity extends AppCompatActivity{
         codeButton = findViewById(R.id.detailCodeButton);
 
         profileButton = findViewById(R.id.detailProfileButton);
+        btnPlay = findViewById(R.id.btnPlay);
 
         //Fetch the key from the QR Code
         Intent intent = getIntent();
@@ -63,7 +64,7 @@ public class PlantDetailActivity extends AppCompatActivity{
         plantName.setText(selectedPlant.getPlantNameScientific());
 
         seekBar = findViewById(R.id.audioSeekbar);
-
+        prepareMediaPlayer();
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
@@ -75,27 +76,23 @@ public class PlantDetailActivity extends AppCompatActivity{
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromTouch) {
                 //seekBarHint.setVisibility(View.VISIBLE);
                 int x = (int) Math.ceil(progress / 1000f);
-
-                if (x != 0 && mediaPlayer != null && !mediaPlayer.isPlaying()) {
-                    clearMediaPlayer();
-                    //fab.setImageDrawable(ContextCompat.getDrawable(PlantDetailActivity.this, android.R.drawable.ic_media_play));
-                    PlantDetailActivity.this.seekBar.setProgress(0);
-                }
-
+                //Show where the user is seeking to
             }
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-
-
                 if (mediaPlayer != null && mediaPlayer.isPlaying()) {
                     mediaPlayer.seekTo(seekBar.getProgress());
                 }
             }
         });
+        btnPlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                handlePlayButton();
+            }
+        });
 
-        playSong();
-        System.out.println("herro");
 
         homeButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -139,61 +136,45 @@ public class PlantDetailActivity extends AppCompatActivity{
         startActivity(intent);
     }
 
-    public void playSong() {
+    public void prepareMediaPlayer() {
+            mediaPlayer = new MediaPlayer();
+            //Replace next line with actual code to get the plant id for the media file
+            String id = "ich_bin_ein";
 
-        try {
-            myHandler.postDelayed(UpdateSongTime,100);
-
-            if (mediaPlayer != null && mediaPlayer.isPlaying()) {
-                clearMediaPlayer();
-                seekBar.setProgress(0);
-                wasPlaying = true;
-            }
-
-            if (!wasPlaying) {
-                if (mediaPlayer == null) {
-                    mediaPlayer = new MediaPlayer();
-                }
-                String id = "ich_bin_ein";
-
-                mediaPlayer = MediaPlayer.create(this, getResources().getIdentifier(id,
-                        "raw", getPackageName()));
+            mediaPlayer = MediaPlayer.create(this, getResources().getIdentifier(id,
+                    "raw", getPackageName()));
+            mediaPlayer.setLooping(false);
+            seekBar.setMax(mediaPlayer.getDuration());
+            seekBar.setProgress(0);
 
 
-                mediaPlayer.prepare();
-//                mediaPlayer.setVolume(0.5f, 0.5f);
-                mediaPlayer.setLooping(false);
-                seekBar.setMax(mediaPlayer.getDuration());
-
-                mediaPlayer.start();
-
-            }
-
-            wasPlaying = false;
-        } catch (Exception e) {
-            e.printStackTrace();
-
-        }
     }
+    //Method to update seekbar
     private Runnable UpdateSongTime = new Runnable() {
         public void run() {
             double startTime = mediaPlayer.getCurrentPosition();
+            //System.out.println(startTime);
             seekBar.setProgress((int)startTime);
             myHandler.postDelayed(this, 100);
-
             }
-
     };
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        clearMediaPlayer();
-    }
 
-    private void clearMediaPlayer() {
-        mediaPlayer.stop();
-        mediaPlayer.release();
-        mediaPlayer = null;
+
+    private void handlePlayButton(){
+        double finalTime = mediaPlayer.getDuration();
+
+        if (oneTimeOnly == 0) {
+            seekBar.setMax((int) finalTime);
+            oneTimeOnly = 1;
+        }
+        if(mediaPlayer.isPlaying()){
+            mediaPlayer.pause();
+            btnPlay.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_baseline_play_arrow_24, 0, 0, 0);
+        } else if(mediaPlayer.isPlaying()==false){
+            mediaPlayer.start();
+            btnPlay.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_baseline_pause_24, 0, 0, 0);
+            myHandler.postDelayed(UpdateSongTime,100);
+        }
     }
 }

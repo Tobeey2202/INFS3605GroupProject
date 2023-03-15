@@ -172,7 +172,6 @@ public class QrScannerActivity extends AppCompatActivity {
                 if(check ==false){
                     switchToPlantDetail();
                     check = true;
-
                 }
             }
 
