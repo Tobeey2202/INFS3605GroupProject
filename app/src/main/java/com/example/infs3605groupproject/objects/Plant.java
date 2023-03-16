@@ -8,8 +8,9 @@ public class Plant {
     private String traditionalUse;
     private String description;
     private String geographicDistribution;
+    private String imagePath;
 
-    public Plant(String plantId, String plantNameScientific, String plantNameRegular, String location, String traditionalUse, String description, String geographicDistribution) {
+    public Plant(String plantId, String plantNameScientific, String plantNameRegular, String location, String traditionalUse, String description, String geographicDistribution, String imagePath) {
         this.plantId = plantId;
         this.plantNameScientific = plantNameScientific;
         this.plantNameRegular = plantNameRegular;
@@ -17,6 +18,7 @@ public class Plant {
         this.traditionalUse = traditionalUse;
         this.description = description;
         this.geographicDistribution = geographicDistribution;
+        this.imagePath = imagePath;
     }
 
     public Plant(){
@@ -78,5 +80,13 @@ public class Plant {
 
     public void setGeographicDistribution(String geographicDistribution) {
         this.geographicDistribution = geographicDistribution;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 }

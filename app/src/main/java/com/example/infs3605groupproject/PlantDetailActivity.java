@@ -4,12 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -20,16 +22,13 @@ import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 public class PlantDetailActivity extends AppCompatActivity{
-    private TextView plantName, plantNameScientific, locationOnCampus, traidtionalUses;
+    private TextView plantName, plantNameScientific, locationOnCampus, traditionalUses;
     private SeekBar seekBar;
     private MediaPlayer mediaPlayer;
     boolean wasPlaying = false;
     private Button btnPlay;
     private Handler myHandler = new Handler();
-    private ImageButton homeButton;
-    private ImageButton mapButton;
-    private ImageButton codeButton;
-    private ImageButton profileButton;
+    private ImageView plantDiagram;
 
     public static int oneTimeOnly =0;
     @Override
@@ -62,8 +61,20 @@ public class PlantDetailActivity extends AppCompatActivity{
 
         plantName = findViewById(R.id.regularPlantName);
         plantNameScientific = findViewById(R.id.scientificPlantName);
+        locationOnCampus = findViewById(R.id.locationOfPlant);
+        traditionalUses = findViewById(R.id.traditionalUses);
+        plantDiagram = findViewById(R.id.plantDiagram);
 
         plantName.setText(selectedPlant.getPlantNameRegular());
+        plantNameScientific.setText(selectedPlant.getPlantNameScientific());
+        locationOnCampus.setText(selectedPlant.getLocation());
+        traditionalUses.setText(selectedPlant.getTraditionalUse());
+
+        String uri = "drawable/" + selectedPlant.getImagePath();
+        int imageResource = getResources().getIdentifier(uri, null, getPackageName());
+        Drawable image = getResources().getDrawable(imageResource);
+        plantDiagram.setImageDrawable(image);
+
 
         seekBar = findViewById(R.id.audioSeekbar);
         prepareMediaPlayer();
