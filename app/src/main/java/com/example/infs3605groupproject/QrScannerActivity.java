@@ -84,7 +84,7 @@ public class QrScannerActivity extends AppCompatActivity {
     }
 
     public void clickedOnMapPage(){
-        Intent intent = new Intent(this, MapActivity.class);
+        Intent intent = new Intent(this, GoogleMapsActivity.class);
         startActivity(intent);
         System.out.print("map page works");
     }

@@ -5,16 +5,16 @@ public class Plant {
     private String plantNameScientific;
     private String plantNameRegular;
     private String location;
-    private String locationID;
+    private String traditionalUse;
     private String description;
     private String geographicDistribution;
 
-    public Plant(String plantId, String plantNameScientific, String plantNameRegular, String location, String locationID, String description, String geographicDistribution) {
+    public Plant(String plantId, String plantNameScientific, String plantNameRegular, String location, String traditionalUse, String description, String geographicDistribution) {
         this.plantId = plantId;
         this.plantNameScientific = plantNameScientific;
         this.plantNameRegular = plantNameRegular;
         this.location = location;
-        this.locationID = locationID;
+        this.traditionalUse = traditionalUse;
         this.description = description;
         this.geographicDistribution = geographicDistribution;
     }
@@ -56,12 +56,12 @@ public class Plant {
         this.location = location;
     }
 
-    public String getLocationID() {
-        return locationID;
+    public String getTraditionalUse() {
+        return traditionalUse;
     }
 
-    public void setLocationID(String locationID) {
-        this.locationID = locationID;
+    public void setTraditionalUse(String traditionalUse) {
+        this.traditionalUse = traditionalUse;
     }
 
     public String getDescription() {

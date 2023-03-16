@@ -12,23 +12,29 @@ import android.location.Location;
 import android.os.Bundle;
 
 import com.example.infs3605groupproject.Location.PermissionUtils;
+import com.example.infs3605groupproject.objects.Plant;
+import com.example.infs3605groupproject.objects.Trail;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.GoogleMapOptions;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.example.infs3605groupproject.databinding.ActivityGoogleMapsBinding;
 import android.Manifest.permission;
 import android.annotation.SuppressLint;
+import android.view.View;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 
 public class GoogleMapsActivity extends AppCompatActivity implements GoogleMap.OnMyLocationButtonClickListener,
         GoogleMap.OnMyLocationClickListener,
         OnMapReadyCallback,
-        ActivityCompat.OnRequestPermissionsResultCallback  {
+        ActivityCompat.OnRequestPermissionsResultCallback {
     /**
      * Request code for location permission request.
      *
@@ -57,6 +63,8 @@ public class GoogleMapsActivity extends AppCompatActivity implements GoogleMap.O
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+
+
     }
 
     /**
@@ -74,10 +82,9 @@ public class GoogleMapsActivity extends AppCompatActivity implements GoogleMap.O
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-33.917, 151.2253);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
-        mMap.moveCamera(CameraUpdateFactory.zoomTo(20));
+//        LatLng sydney = new LatLng(-33.917, 151.2253);
+//        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+
         enableMyLocation();
         //For enabling userlocation on the map
         mMap.setOnMyLocationButtonClickListener(this);
@@ -88,10 +95,32 @@ public class GoogleMapsActivity extends AppCompatActivity implements GoogleMap.O
 //                .rotateGesturesEnabled(true)
 //                .tiltGesturesEnabled(true);
 
-        LatLng plant1 = new LatLng(-33.917237, 151.230294);
-        mMap.addMarker(new MarkerOptions()
-                .position(plant1)
-                .title("Plant 1"));
+        LatLng plant24LatLng = new LatLng(-33.917237, 151.230294);
+        Marker flameTree = mMap.addMarker(new MarkerOptions()
+                .position(plant24LatLng)
+                .title("Illawarra Flame Tree"));
+
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(plant24LatLng));
+        mMap.moveCamera(CameraUpdateFactory.zoomTo(17));
+        mMap.setInfoWindowAdapter(new InfoWindowAdapter(GoogleMapsActivity.this));
+        ArrayList<Plant> plantList = Trail.generatePlantList();
+
+        // Retrieve plant data upon user clicking marker
+        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(Marker m) {
+                String value = m.getTitle();
+                Plant selectedPlant = new Plant();
+                for(Plant p : plantList){
+                    if(p.getPlantNameRegular().equals(value)){
+                        selectedPlant = p;
+                        break;
+                    }
+                }
+                m.setSnippet(selectedPlant.getPlantNameScientific()+"\n"+"\n"+selectedPlant.getDescription()+"\n"+"Traditional Use: "+selectedPlant.getTraditionalUse());
+                return false;
+            }
+        });
 
     }
 
@@ -164,8 +193,6 @@ public class GoogleMapsActivity extends AppCompatActivity implements GoogleMap.O
         PermissionUtils.PermissionDeniedDialog
                 .newInstance(true).show(getSupportFragmentManager(), "dialog");
     }
-
-
 
 
 }
