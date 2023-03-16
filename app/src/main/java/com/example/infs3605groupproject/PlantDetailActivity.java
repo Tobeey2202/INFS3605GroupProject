@@ -60,7 +60,7 @@ public class PlantDetailActivity extends AppCompatActivity{
             }
         }
 
-        plantName = findViewById(R.id.txtPlantName);
+        plantName = findViewById(R.id.regularPlantName);
         plantName.setText(selectedPlant.getPlantNameScientific());
 
         seekBar = findViewById(R.id.audioSeekbar);
