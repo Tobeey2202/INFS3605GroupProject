@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 public class PlantDetailActivity extends AppCompatActivity{
-    private TextView plantName;
+    private TextView plantName, plantNameScientific, locationOnCampus, traidtionalUses;
     private SeekBar seekBar;
     private MediaPlayer mediaPlayer;
     boolean wasPlaying = false;
@@ -61,7 +61,9 @@ public class PlantDetailActivity extends AppCompatActivity{
         }
 
         plantName = findViewById(R.id.regularPlantName);
-        plantName.setText(selectedPlant.getPlantNameScientific());
+        plantNameScientific = findViewById(R.id.scientificPlantName);
+
+        plantName.setText(selectedPlant.getPlantNameRegular());
 
         seekBar = findViewById(R.id.audioSeekbar);
         prepareMediaPlayer();
@@ -92,49 +94,9 @@ public class PlantDetailActivity extends AppCompatActivity{
                 handlePlayButton();
             }
         });
-
-
-//        homeButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {clickedOnHomePage();}
-//        });
-//
-//        mapButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {clickedOnMapPage();}
-//        });
-//
-//        codeButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {clickedOnCodePage();}
-//        });
-//
-//        profileButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {clickedOnProfilePage();}
-//        });
     }
 
-    public void clickedOnHomePage(){
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-    }
 
-    public void clickedOnMapPage(){
-        Intent intent = new Intent(this, MapActivity.class);
-        startActivity(intent);
-        System.out.print("map page works");
-    }
-
-    public void clickedOnCodePage(){
-        Intent intent = new Intent(this, QrScannerActivity.class);
-        startActivity(intent);
-    }
-
-    public void clickedOnProfilePage(){
-        Intent intent = new Intent(this, ProfileActivity.class);
-        startActivity(intent);
-    }
 
     public void prepareMediaPlayer() {
             mediaPlayer = new MediaPlayer();
