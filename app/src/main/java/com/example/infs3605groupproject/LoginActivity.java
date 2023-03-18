@@ -5,10 +5,14 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -39,6 +43,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private FirebaseAuth mAuth;
     private FirebaseDatabase mDatabase;
     private ProgressBar progressBar;
+    private CheckBox rememberBox;
     private static final int RC_SIGN_IN = 100;
     GoogleSignInOptions gso;
     GoogleSignInClient gsc;
@@ -56,7 +61,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         emailField = findViewById(R.id.emailField);
         passwordField = findViewById(R.id.passwordField);
-
         progressBar = findViewById(R.id.progressBar);
 
         mAuth = FirebaseAuth.getInstance();
@@ -69,6 +73,32 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 .requestEmail()
                 .build();
         gsc = GoogleSignIn.getClient(this,gso);
+
+        rememberBox = findViewById(R.id.rememberBox);
+
+        SharedPreferences preferences = getSharedPreferences("rememberBoxChecked",MODE_PRIVATE);
+        String rememberBoxChecked = preferences.getString("remember","");
+
+        if (rememberBoxChecked.equals("true")) {
+            startActivity(new Intent(LoginActivity.this,MainActivity.class));
+        }
+
+        rememberBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (compoundButton.isChecked()) {
+                    SharedPreferences preferences = getSharedPreferences("rememberBoxChecked",MODE_PRIVATE);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putString("remember","true");
+                    editor.apply();
+                } else if (!compoundButton.isChecked()) {
+                    SharedPreferences preferences = getSharedPreferences("rememberBoxChecked",MODE_PRIVATE);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putString("remember","false");
+                    editor.apply();
+                }
+            }
+        });
 
     }
 
@@ -175,6 +205,5 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             }
         }
     }
-
 
 }

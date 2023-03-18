@@ -94,15 +94,14 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             return;
         }
 
-        if(phone.isEmpty()) {
-            phone = "Not provided";
-            return;
-        }
-
         if(suburb.isEmpty()) {
             suburbField.setError("Suburb required!");
             suburbField.requestFocus();
             return;
+        }
+
+        if(phone.isEmpty()) {
+            phone = "Not provided";
         }
 
         // Create user in firebase database

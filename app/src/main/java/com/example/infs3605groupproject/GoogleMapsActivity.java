@@ -81,10 +81,6 @@ public class GoogleMapsActivity extends AppCompatActivity implements GoogleMap.O
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
-//        LatLng sydney = new LatLng(-33.917, 151.2253);
-//        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-
         enableMyLocation();
         //For enabling userlocation on the map
         mMap.setOnMyLocationButtonClickListener(this);
@@ -95,10 +91,15 @@ public class GoogleMapsActivity extends AppCompatActivity implements GoogleMap.O
 //                .rotateGesturesEnabled(true)
 //                .tiltGesturesEnabled(true);
 
+        // Set up plant markers on map
+        LatLng plant23LatLng = new LatLng(-33.9156603, 151.2268734);
+        mMap.addMarker(new MarkerOptions().position(plant23LatLng).title("Mountain Cedar Wattle"));
+
         LatLng plant24LatLng = new LatLng(-33.917237, 151.230294);
-        Marker flameTree = mMap.addMarker(new MarkerOptions()
-                .position(plant24LatLng)
-                .title("Illawarra Flame Tree"));
+        mMap.addMarker(new MarkerOptions().position(plant24LatLng).title("Illawarra Flame Tree"));
+
+        LatLng plant25LatLng = new LatLng(-33.9173428, 151.2278755);
+        mMap.addMarker(new MarkerOptions().position(plant25LatLng).title("Port Jackson Fig"));
 
         mMap.moveCamera(CameraUpdateFactory.newLatLng(plant24LatLng));
         mMap.moveCamera(CameraUpdateFactory.zoomTo(17));

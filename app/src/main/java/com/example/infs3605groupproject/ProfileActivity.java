@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -21,7 +22,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class ProfileActivity extends AppCompatActivity implements View.OnClickListener {
+public class ProfileActivity extends AppCompatActivity {
 
     private Button logoutButton;
     GoogleSignInOptions gso;
@@ -37,7 +38,6 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_profile);
 
         logoutButton = findViewById(R.id.logoutButton);
-        logoutButton.setOnClickListener(this);
 
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
@@ -71,23 +71,22 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             @Override
             public void onClick(View view) {clickedOnProfilePage();}
         });
-    }
 
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.logoutButton:
-                logoutUser();
-                break;
-        }
-    }
-
-    private void logoutUser() {
-        gsc.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
+        logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                finish();
-                startActivity(new Intent(ProfileActivity.this,LoginActivity.class));
+            public void onClick(View view) {
+                gsc.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        SharedPreferences preferences = getSharedPreferences("rememberBoxChecked",MODE_PRIVATE);
+                        SharedPreferences.Editor editor = preferences.edit();
+                        editor.putString("remember","");
+                        editor.apply();
+
+                        startActivity(new Intent(ProfileActivity.this,LoginActivity.class));
+                        finish();
+                    }
+                });
             }
         });
     }
@@ -112,4 +111,5 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         Intent intent = new Intent(this, ProfileActivity.class);
         startActivity(intent);
     }
+
 }
