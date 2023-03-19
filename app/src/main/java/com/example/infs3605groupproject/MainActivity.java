@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -63,17 +64,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View view) {clickedOnProfilePage();}
         });
+        //Adding a try catch for testing purposes so the main page can be laoded without having a user logged in
+        try{
+            // Retrieving user information from firebase database
+            DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("Users")
+                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid());
 
-        // Retrieving user information from firebase database
-        DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("Users")
-                .child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+            userRef.child("name").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DataSnapshot> task) {
+                    welcomeMsg.setText("Hi " + String.valueOf(task.getResult().getValue()) + "!");
+                }
+            });
+        } catch (Exception e) {
+            Toast.makeText(this, "User not logged in", Toast.LENGTH_SHORT);
+        }
 
-        userRef.child("name").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DataSnapshot> task) {
-                welcomeMsg.setText("Hi " + String.valueOf(task.getResult().getValue()) + "!");
-            }
-        });
+
     }
 
     @Override

@@ -101,8 +101,9 @@ public class GoogleMapsActivity extends AppCompatActivity implements GoogleMap.O
         LatLng plant25LatLng = new LatLng(-33.9173428, 151.2278755);
         mMap.addMarker(new MarkerOptions().position(plant25LatLng).title("Port Jackson Fig"));
 
+        mMap.moveCamera(CameraUpdateFactory.zoomTo(16));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(plant24LatLng));
-        mMap.moveCamera(CameraUpdateFactory.zoomTo(17));
+
         mMap.setInfoWindowAdapter(new InfoWindowAdapter(GoogleMapsActivity.this));
         ArrayList<Plant> plantList = Trail.generatePlantList();
 
