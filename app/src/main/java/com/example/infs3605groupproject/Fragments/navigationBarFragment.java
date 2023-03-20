@@ -56,6 +56,7 @@ public class navigationBarFragment extends Fragment implements BottomNavigationV
         args.putString(menuIconToSelect, param1);
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
+
         return fragment;
     }
 
@@ -75,20 +76,9 @@ public class navigationBarFragment extends Fragment implements BottomNavigationV
         View view =  inflater.inflate(R.layout.fragment_navigation_bar, container, false);
         bottomNavigationView = view.findViewById(R.id.navigationBar);
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
-        //whatAppSection();
+
 
         return view;
-    }
-
-    public void whatAppSection(){
-        System.out.println("Method AppSection has been called \n \n");
-        String activityName = getActivity().getLocalClassName();
-        System.out.println("ActivityName" + activityName);
-
-        if(activityName.equals("GoogleMapsActivity")){
-            bottomNavigationView.setSelectedItemId(R.id.menuMap);
-            System.out.println("Map Icon Selected \n =-=-=-=-=-=-=-=-=\n");
-        }
     }
 
     @Override
