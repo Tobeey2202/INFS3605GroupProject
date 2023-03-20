@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import androidx.fragment.app.FragmentActivity;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
@@ -25,7 +24,6 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.example.infs3605groupproject.databinding.ActivityGoogleMapsBinding;
 import android.Manifest.permission;
 import android.annotation.SuppressLint;
-import android.view.View;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -55,8 +53,8 @@ public class GoogleMapsActivity extends AppCompatActivity implements GoogleMap.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding = ActivityGoogleMapsBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        //binding = ActivityGoogleMapsBinding.inflate(getLayoutInflater());
+        setContentView(R.layout.activity_google_maps);
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()

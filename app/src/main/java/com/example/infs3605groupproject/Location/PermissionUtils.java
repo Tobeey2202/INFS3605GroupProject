@@ -12,6 +12,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.DialogFragment;
 import android.widget.Toast;
 
+import com.example.infs3605groupproject.GoogleMapsActivity;
 import com.example.infs3605groupproject.R;
 
 /**
