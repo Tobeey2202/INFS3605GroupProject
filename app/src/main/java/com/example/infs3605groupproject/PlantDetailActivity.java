@@ -21,7 +21,7 @@ import com.example.infs3605groupproject.objects.Trail;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
-public class PlantDetailActivity extends AppCompatActivity{
+public class PlantDetailActivity extends AppCompatActivity {
     private TextView plantName, plantNameScientific, locationOnCampus, traditionalUses;
     private SeekBar seekBar;
     private MediaPlayer mediaPlayer;

@@ -30,4 +30,18 @@
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/closeButton"
+        android:layout_width="49dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="355dp"
+        android:layout_marginTop="5dp"
+        android:backgroundTint="#FBF6F6"
+        android:text="X"
+        android:textColor="#0B0A0A"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

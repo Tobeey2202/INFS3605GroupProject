@@ -77,6 +77,12 @@
         <activity
             android:name=".ProfileActivity"
             android:exported="true" />
+        <activity
+            android:name=".acknowledgementActivity"
+            android:exported="true" />
+        <activity
+            android:name=".welcomePageActivity"
+            android:exported="true" />
     </application>
 
 </manifest>

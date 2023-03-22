@@ -7,23 +7,23 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class acknowledgementActivity extends AppCompatActivity {
-    private Button closeButton;
+public class welcomePageActivity extends AppCompatActivity {
+    private Button startButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_acknowledgement);
+        setContentView(R.layout.activity_welcome_page);
 
-        closeButton = findViewById(R.id.closeButton);
+        startButton = findViewById(R.id.startButton);
 
-        closeButton.setOnClickListener(new View.OnClickListener() {
+        startButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {clickedClosePage();}
+            public void onClick(View view) {clickedStartButton();}
         });
     }
 
-    public void clickedClosePage(){
+    public void clickedStartButton(){
         Intent intent = new Intent(this, acknowledgementActivity.class);
         startActivity(intent);
     }
