@@ -27,4 +27,20 @@ public class Trail {
         return plantList;
     }
 
+    // Source: https://mentalhealthmatch.com/articles/anxiety/inspiring-mental-health-quotes
+    public static ArrayList<String> generateQuoteList(){
+        ArrayList<String> quoteList= new ArrayList<>();
+        quoteList.add("Just because no one else can heal or do your inner work for you, doesn't mean you should, or need to do it alone.");
+        quoteList.add("Your present circumstances don't determine where you go; they merely determine where you start.");
+        quoteList.add("Happiness can be found even in the darkest of times, if one only remembers to turn on the light.");
+        quoteList.add("Being able to be your true self is one of the strongest components of good mental health.");
+        quoteList.add("‘Positive vibes only’ isn’t a thing. Humans have a wide range of emotions and that’s OK.");
+        quoteList.add("Change what you can, manage what you can’t.");
+        quoteList.add("If there is no struggle, there is no progress.");
+        quoteList.add("Have patience with all things, but chiefly have patience with yourself. Do not lose courage in considering your own imperfections but instantly set about remedying them.");
+        quoteList.add("Worrying is carrying tomorrow’s load with today’s strength-carrying two days at once. Worrying doesn’t empty tomorrow of its sorrow, it empties today of its strength.");
+        quoteList.add("Start listening to the way you talk to yourself. These interactions will tell you how well you know yourself, how much you respect yourself, and what boundaries you are lacking.");
+        return quoteList;
+    }
+
 }

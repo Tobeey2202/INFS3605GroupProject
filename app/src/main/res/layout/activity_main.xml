@@ -18,99 +18,90 @@
         app:srcCompat="@drawable/green_trail_background_pattern_snip" />
 
     <TextView
-        android:id="@+id/txtPlantName2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="148dp"
-        android:layout_marginTop="-20dp"
-        android:fontFamily="@font/radley"
-        android:text="Home"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#4C7C5C"
-        android:textSize="40sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
-
-    <ImageButton
-        android:id="@+id/homeProfileButton"
-        android:layout_width="56dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="30dp"
-        android:contentDescription="profile"
-        app:layout_constraintStart_toEndOf="@+id/homeCodeButton"
-        app:layout_constraintTop_toTopOf="@+id/homeHomeButton"
-        app:srcCompat="@drawable/_023_03_09_16_41_17" />
-
-    <ImageButton
-        android:id="@+id/homeCodeButton"
-        android:layout_width="58dp"
-        android:layout_height="57dp"
-        android:layout_marginStart="30dp"
-        android:contentDescription="QR code"
-        app:layout_constraintStart_toEndOf="@+id/homeMapButton"
-        app:layout_constraintTop_toTopOf="@+id/homeHomeButton"
-        app:srcCompat="@drawable/_023_03_09_16_39_53" />
-
-    <ImageButton
-        android:id="@+id/homeMapButton"
-        android:layout_width="58dp"
-        android:layout_height="54dp"
-        android:layout_marginStart="30dp"
-        android:contentDescription="maps"
-        app:layout_constraintStart_toEndOf="@+id/homeHomeButton"
-        app:layout_constraintTop_toTopOf="@+id/homeHomeButton"
-        app:srcCompat="@drawable/_023_03_09_16_45_41" />
-
-    <ImageButton
-        android:id="@+id/homeHomeButton"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="20dp"
-        android:contentDescription="home"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:srcCompat="@drawable/_023_03_09_16_39_36" />
-
-    <TextView
         android:id="@+id/welcomeMsg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="175dp"
         android:fontFamily="@font/radley"
+        android:text="Welcome"
         android:textColor="#4C7C5C"
         android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <TextView
         android:id="@+id/titleQuote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="160dp"
+        android:layout_marginTop="60dp"
         android:fontFamily="@font/radley"
-        android:text="QUOTE OF THE DAY"
+        android:text="Quote of the Day"
         android:textColor="#000000"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtPlantName2" />
+        app:layout_constraintTop_toBottomOf="@+id/plantImageView" />
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="248dp"
-        android:layout_height="255dp"
-        android:layout_marginStart="80dp"
+        android:id="@+id/plantOfTheDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:fontFamily="@font/radley"
+        android:text="Plant of the Day"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcomeMsg" />
+
+    <TextView
+        android:id="@+id/quoteTv"
+        android:layout_width="310dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/radley"
         android:text="Quote of the Day........................................................................................................."
+        android:textAlignment="center"
+        android:textColor="#83431E"
         android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleQuote" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView3"
+        android:name="com.example.infs3605groupproject.Fragments.navigationBarFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/plantNameTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/radley"
+        android:text="TextView"
+        android:textColor="#83431E"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/plantOfTheDay" />
+
+    <ImageView
+        android:id="@+id/plantImageView"
+        android:layout_width="179dp"
+        android:layout_height="182dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/plantNameTv"
+        tools:srcCompat="@tools:sample/avatars" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
