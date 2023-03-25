@@ -11,6 +11,8 @@ import android.location.Location;
 import android.os.Bundle;
 
 import com.example.infs3605groupproject.Location.PermissionUtils;
+import com.example.infs3605groupproject.Routing.DirectionPointListener;
+import com.example.infs3605groupproject.Routing.GetPathFromLocation;
 import com.example.infs3605groupproject.objects.Plant;
 import com.example.infs3605groupproject.objects.Trail;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -22,8 +24,13 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.example.infs3605groupproject.databinding.ActivityGoogleMapsBinding;
+import com.google.android.gms.maps.model.Polyline;
+import com.google.android.gms.maps.model.PolylineOptions;
+
 import android.Manifest.permission;
 import android.annotation.SuppressLint;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -47,6 +54,8 @@ public class GoogleMapsActivity extends AppCompatActivity implements GoogleMap.O
     private boolean permissionDenied = false;
     private GoogleMap mMap;
     private ActivityGoogleMapsBinding binding;
+    private Button showRoute, hideRoute;
+    Polyline polylineFinal = null;
     GoogleMapOptions options = new GoogleMapOptions();
 
     @Override
@@ -61,7 +70,8 @@ public class GoogleMapsActivity extends AppCompatActivity implements GoogleMap.O
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-
+        showRoute = findViewById(R.id.showRoute);
+        hideRoute = findViewById(R.id.hideRoute);
 
     }
 
@@ -74,7 +84,7 @@ public class GoogleMapsActivity extends AppCompatActivity implements GoogleMap.O
      * it inside the SupportMapFragment. This method will only be triggered once the user has
      * installed Google Play services and returned to the app.
      */
-    @SuppressLint("MissingPermission")
+    @SuppressLint({"MissingPermission", "PotentialBehaviorOverride"})
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
@@ -122,6 +132,32 @@ public class GoogleMapsActivity extends AppCompatActivity implements GoogleMap.O
             }
         });
 
+        LatLng source = plant23LatLng;
+        LatLng destination = plant25LatLng;
+
+        showRoute.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new GetPathFromLocation(source, destination, new DirectionPointListener() {
+                    @Override
+                    public void onPath(PolylineOptions polyLine) {
+                        showPolyline(polyLine);
+                    }
+                }).execute();
+            }
+        });
+
+        hideRoute.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                polylineFinal.remove();
+            }
+        });
+
+    }
+
+    private void showPolyline(PolylineOptions polyLine) {
+        polylineFinal = mMap.addPolyline(polyLine);
     }
 
 

@@ -24,7 +24,7 @@ public class acknowledgementActivity extends AppCompatActivity {
     }
 
     public void clickedClosePage(){
-        Intent intent = new Intent(this, acknowledgementActivity.class);
+        Intent intent = new Intent(acknowledgementActivity.this, LoginActivity.class);
         startActivity(intent);
     }
 }
