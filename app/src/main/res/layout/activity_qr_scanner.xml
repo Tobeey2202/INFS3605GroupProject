@@ -6,51 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".QrScannerActivity">
 
-    <ImageButton
-        android:id="@+id/scannerHomeButton"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="41dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="30dp"
-        android:contentDescription="home button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activity_main_previewView"
-        app:srcCompat="@drawable/_023_03_09_16_39_36" />
-
-    <ImageButton
-        android:id="@+id/scannerMapButton"
-        android:layout_width="58dp"
-        android:layout_height="53dp"
-        android:layout_marginStart="30dp"
-        android:contentDescription="map button"
-        app:layout_constraintStart_toEndOf="@+id/scannerHomeButton"
-        app:layout_constraintTop_toTopOf="@+id/scannerHomeButton"
-        app:srcCompat="@drawable/_023_03_09_16_45_41" />
-
-    <ImageButton
-        android:id="@+id/scannerCodeButton"
-        android:layout_width="58dp"
-        android:layout_height="57dp"
-        android:layout_marginStart="30dp"
-        android:contentDescription="code button"
-        app:layout_constraintStart_toEndOf="@+id/scannerMapButton"
-        app:layout_constraintTop_toTopOf="@+id/scannerHomeButton"
-        app:srcCompat="@drawable/_023_03_09_16_39_53" />
-
-    <ImageButton
-        android:id="@+id/scannerProfileButton"
-        android:layout_width="56dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="41dp"
-        android:contentDescription="profile button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/scannerCodeButton"
-        app:layout_constraintTop_toTopOf="@+id/scannerHomeButton"
-        app:srcCompat="@drawable/_023_03_09_16_41_17" />
-
     <androidx.camera.view.PreviewView
         android:id="@+id/activity_main_previewView"
         android:layout_width="376dp"
@@ -87,5 +42,14 @@
         android:textSize="40dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView2"
+        android:name="com.example.infs3605groupproject.Fragments.navigationBarFragment"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

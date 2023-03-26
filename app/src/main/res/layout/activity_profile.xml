@@ -6,48 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".ProfileActivity">
 
-    <ImageButton
-        android:id="@+id/profileHomeButton"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="41dp"
-        android:layout_marginTop="25dp"
-        android:contentDescription="home button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logoutButton"
-        app:srcCompat="@drawable/_023_03_09_16_39_36" />
-
-    <ImageButton
-        android:id="@+id/profileMapButton"
-        android:layout_width="58dp"
-        android:layout_height="54dp"
-        android:layout_marginStart="30dp"
-        android:contentDescription="map button"
-        app:layout_constraintStart_toEndOf="@+id/profileHomeButton"
-        app:layout_constraintTop_toTopOf="@+id/profileHomeButton"
-        app:srcCompat="@drawable/_023_03_09_16_45_41" />
-
-    <ImageButton
-        android:id="@+id/profileCodeButton"
-        android:layout_width="58dp"
-        android:layout_height="57dp"
-        android:layout_marginStart="30dp"
-        android:contentDescription="code button"
-        app:layout_constraintStart_toEndOf="@+id/profileMapButton"
-        app:layout_constraintTop_toTopOf="@+id/profileHomeButton"
-        app:srcCompat="@drawable/_023_03_09_16_39_53" />
-
-    <ImageButton
-        android:id="@+id/profileProfileButton"
-        android:layout_width="56dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="41dp"
-        android:contentDescription="profile button"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView4"
+        android:name="com.example.infs3605groupproject.Fragments.navigationBarFragment"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/profileCodeButton"
-        app:layout_constraintTop_toTopOf="@+id/profileHomeButton"
-        app:srcCompat="@drawable/_023_03_09_16_41_17" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/txtScientificName2"

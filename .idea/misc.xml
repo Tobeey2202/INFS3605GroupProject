@@ -15,16 +15,22 @@
         <entry key="..\:/Users/tobey/AndroidStudioProjects/INFS3605GroupProject/app/src/main/res/drawable/qr_scanner_clip_art_background.xml" value="0.2185" />
         <entry key="..\:/Users/tobey/AndroidStudioProjects/INFS3605GroupProject/app/src/main/res/drawable/qr_scanner_clip_art_foreground.xml" value="0.2185" />
         <entry key="..\:/Users/tobey/AndroidStudioProjects/INFS3605GroupProject/app/src/main/res/drawable/test_foreground.xml" value="0.2185" />
+        <entry key="..\:/Users/tobey/AndroidStudioProjects/INFS3605GroupProject/app/src/main/res/layout/activity_acknowledgement.xml" value="0.4041666666666667" />
         <entry key="..\:/Users/tobey/AndroidStudioProjects/INFS3605GroupProject/app/src/main/res/layout/activity_google_maps.xml" value="0.34219269102990035" />
         <entry key="..\:/Users/tobey/AndroidStudioProjects/INFS3605GroupProject/app/src/main/res/layout/activity_login.xml" value="0.1945288753799392" />
         <entry key="..\:/Users/tobey/AndroidStudioProjects/INFS3605GroupProject/app/src/main/res/layout/activity_main.xml" value="0.4" />
         <entry key="..\:/Users/tobey/AndroidStudioProjects/INFS3605GroupProject/app/src/main/res/layout/activity_map.xml" value="0.4041666666666667" />
         <entry key="..\:/Users/tobey/AndroidStudioProjects/INFS3605GroupProject/app/src/main/res/layout/activity_maps222.xml" value="0.10587639311043566" />
         <entry key="..\:/Users/tobey/AndroidStudioProjects/INFS3605GroupProject/app/src/main/res/layout/activity_plant_detail.xml" value="0.4" />
-        <entry key="..\:/Users/tobey/AndroidStudioProjects/INFS3605GroupProject/app/src/main/res/layout/activity_qr_scanner.xml" value="0.1721014492753623" />
+        <entry key="..\:/Users/tobey/AndroidStudioProjects/INFS3605GroupProject/app/src/main/res/layout/activity_profile.xml" value="0.4041666666666667" />
+        <entry key="..\:/Users/tobey/AndroidStudioProjects/INFS3605GroupProject/app/src/main/res/layout/activity_qr_scanner.xml" value="0.264" />
+        <entry key="..\:/Users/tobey/AndroidStudioProjects/INFS3605GroupProject/app/src/main/res/layout/activity_sign_up.xml" value="0.4" />
+        <entry key="..\:/Users/tobey/AndroidStudioProjects/INFS3605GroupProject/app/src/main/res/layout/activity_welcome_page.xml" value="0.4" />
         <entry key="..\:/Users/tobey/AndroidStudioProjects/INFS3605GroupProject/app/src/main/res/layout/fragment_audio_player.xml" value="0.21458333333333332" />
         <entry key="..\:/Users/tobey/AndroidStudioProjects/INFS3605GroupProject/app/src/main/res/layout/fragment_blank.xml" value="0.4041666666666667" />
         <entry key="..\:/Users/tobey/AndroidStudioProjects/INFS3605GroupProject/app/src/main/res/layout/fragment_navigation_bar.xml" value="0.3007246376811594" />
+        <entry key="..\:/Users/tobey/AndroidStudioProjects/INFS3605GroupProject/app/src/main/res/layout/info_window.xml" value="0.4" />
+        <entry key="..\:/Users/tobey/AndroidStudioProjects/INFS3605GroupProject/app/src/main/res/layout/plant_item_view.xml" value="0.4" />
         <entry key="..\:/Users/tobey/AndroidStudioProjects/INFS3605GroupProject/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.264" />
         <entry key="..\:/Users/tobey/AndroidStudioProjects/INFS3605GroupProject/app/src/main/res/mipmap-anydpi-v26/home clip art.xml" value="0.2185" />
       </map>
