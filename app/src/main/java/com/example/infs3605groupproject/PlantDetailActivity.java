@@ -49,11 +49,18 @@ public class PlantDetailActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String value = intent.getStringExtra("QRCode");
 
+        String valueFromRecyclerView = intent.getStringExtra("plantID");
+
         ArrayList<Plant> plantList = Trail.generatePlantList();
 
         Plant selectedPlant = new Plant();
         for(Plant p : plantList){
             if(p.getPlantId().equals(value)){
+                selectedPlant = p;
+                break;
+            }
+
+            if(p.getPlantId().equals(valueFromRecyclerView)){
                 selectedPlant = p;
                 break;
             }
