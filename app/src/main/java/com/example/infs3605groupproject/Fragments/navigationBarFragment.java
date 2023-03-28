@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 
 import com.example.infs3605groupproject.GoogleMapsActivity;
 import com.example.infs3605groupproject.MainActivity;
+import com.example.infs3605groupproject.PlantListActivity;
 import com.example.infs3605groupproject.ProfileActivity;
 import com.example.infs3605groupproject.QrScannerActivity;
 import com.example.infs3605groupproject.R;
@@ -99,6 +100,9 @@ public class navigationBarFragment extends Fragment implements BottomNavigationV
             case R.id.menuQRCode:
                 clickedOnCodePage();
                 return true;
+            case R.id.menuPlant:
+                clickedOnPlantPage();
+                return true;
         }
         return false;
     }
@@ -122,6 +126,11 @@ public class navigationBarFragment extends Fragment implements BottomNavigationV
 
     public void clickedOnProfilePage(){
         Intent intent = new Intent(getActivity(), ProfileActivity.class);
+        startActivity(intent);
+    }
+
+    public void clickedOnPlantPage(){
+        Intent intent = new Intent(getActivity(), PlantListActivity.class);
         startActivity(intent);
     }
 }
