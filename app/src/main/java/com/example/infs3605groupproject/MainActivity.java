@@ -77,8 +77,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         ArrayList<String> quoteList = Trail.generateQuoteList();
         String quoteOfDay = "";
-        for (int i = 0; i < plantList.size(); i++) {
-            int index = random.nextInt(plantList.size());
+        for (int i = 0; i < quoteList.size(); i++) {
+            int index = random.nextInt(quoteList.size());
             quoteOfDay = quoteList.get(index);
         }
         quoteTv.setText(quoteOfDay);
