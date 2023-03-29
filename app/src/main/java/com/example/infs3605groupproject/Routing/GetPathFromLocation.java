@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import com.example.infs3605groupproject.objects.Trail;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.PolylineOptions;
 
@@ -38,7 +39,17 @@ public class GetPathFromLocation extends AsyncTask<String, Void, PolylineOptions
         String str_dest = "destination=" + dest.latitude + "," + dest.longitude;
         String sensor = "sensor=false";
         String travelMode = "walking";
-        String parameters = str_origin + "&" + str_dest + "&" + sensor + "&" + "mode=" + travelMode;
+
+        String waypoints = "";
+        ArrayList<LatLng> markerPoints = Trail.generateMarkerList();
+        for (int i = 2; i < markerPoints.size(); i++) {
+            LatLng point = markerPoints.get(i);
+            if (i == 2)
+                waypoints = "waypoints=";
+            waypoints += point.latitude + "," + point.longitude + "|";
+        }
+
+        String parameters = str_origin + "&" + str_dest + "&" + sensor + "&" + waypoints + "&" + "mode=" + travelMode;
         String output = "json";
         String url = "https://maps.googleapis.com/maps/api/directions/" + output + "?" + parameters + "&key=" + API_KEY;
 
@@ -114,8 +125,8 @@ public class GetPathFromLocation extends AsyncTask<String, Void, PolylineOptions
 
                     // Adding all the points in the route to LineOptions
                     lineOptions.addAll(points);
-                    lineOptions.width(10);
-                    lineOptions.color(Color.BLUE);
+                    lineOptions.width(7);
+                    lineOptions.color(Color.parseColor("#4747d1"));
 
                     Log.e(TAG, "PolylineOptions Decoded");
                 }

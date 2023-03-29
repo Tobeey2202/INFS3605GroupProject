@@ -1,5 +1,7 @@
 package com.example.infs3605groupproject.objects;
 
+import com.google.android.gms.maps.model.LatLng;
+
 import java.util.ArrayList;
 
 public class Trail {
@@ -99,6 +101,17 @@ public class Trail {
         quoteList.add("Worrying is carrying tomorrow’s load with today’s strength-carrying two days at once. Worrying doesn’t empty tomorrow of its sorrow, it empties today of its strength.");
         quoteList.add("Start listening to the way you talk to yourself. These interactions will tell you how well you know yourself, how much you respect yourself, and what boundaries you are lacking.");
         return quoteList;
+    }
+
+    public static ArrayList<LatLng> generateMarkerList() {
+        ArrayList<LatLng> markerList = new ArrayList<>();
+        // plant 23
+        markerList.add(new LatLng(-33.9156603, 151.2268734));
+        // plant 24
+        markerList.add(new LatLng(-33.917237, 151.230294));
+        // plant 25
+        markerList.add(new LatLng(-33.9173428, 151.2278755));
+        return markerList;
     }
 
 }
