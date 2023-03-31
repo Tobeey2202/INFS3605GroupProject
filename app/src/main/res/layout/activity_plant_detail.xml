@@ -34,30 +34,10 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/green_trail_background_pattern_snip" />
 
-    <SeekBar
-        android:id="@+id/audioSeekbar"
-        android:layout_width="229dp"
-        android:layout_height="26dp"
-        android:layout_marginTop="15dp"
-        app:layout_constraintEnd_toStartOf="@+id/btnPlay"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
-
-    <Button
-        android:id="@+id/btnPlay"
-        android:layout_width="58dp"
-        android:layout_height="50dp"
-        android:contentDescription="audio button"
-        android:drawableLeft="@android:drawable/ic_media_play"
-        app:layout_constraintBottom_toBottomOf="@+id/audioSeekbar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/audioSeekbar"
-        app:layout_constraintTop_toTopOf="@+id/audioSeekbar" />
-
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="0dp"
-        android:layout_height="422dp"
+        android:layout_height="452dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
@@ -140,5 +120,60 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@id/fragmentContainerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/rectangle" />
+
+        <SeekBar
+            android:id="@+id/audioSeekbar"
+            style="@android:style/Widget.Material.SeekBar"
+            android:layout_width="229dp"
+            android:layout_height="26dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="36dp"
+            android:progressTint="#966C00"
+            android:thumbTint="#C17C5C"
+            app:layout_constraintStart_toStartOf="@+id/imageView5"
+            app:layout_constraintTop_toTopOf="@+id/imageView5" />
+
+        <Button
+            android:id="@+id/btnPlay"
+            android:layout_width="58dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="20dp"
+            android:contentDescription="audio button"
+            android:drawableLeft="@android:drawable/ic_media_play"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/imageView5"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="Audio recording 2.00"
+            android:textColor="#FBF7F7"
+            app:layout_constraintBottom_toTopOf="@+id/audioSeekbar"
+            app:layout_constraintStart_toStartOf="@+id/audioSeekbar" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
