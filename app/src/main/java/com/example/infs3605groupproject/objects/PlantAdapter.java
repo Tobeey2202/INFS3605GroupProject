@@ -48,6 +48,7 @@ public class PlantAdapter extends RecyclerView.Adapter<PlantAdapter.MyViewHolder
         Glide.with(context)
         .load(context.getResources()
         .getIdentifier(plant.getImagePath(), "drawable", context.getPackageName()))
+        .circleCrop()
         .into(holder.imgView);
     }
 
