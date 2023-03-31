@@ -133,7 +133,7 @@ public class GoogleMapsActivity extends AppCompatActivity implements GoogleMap.O
         });
 
         LatLng source = plant23LatLng;
-        LatLng destination = plant25LatLng;
+        LatLng destination = plant24LatLng;
 
         showRoute.setOnClickListener(new View.OnClickListener() {
             @Override
