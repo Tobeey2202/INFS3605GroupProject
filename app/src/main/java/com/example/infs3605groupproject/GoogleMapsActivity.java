@@ -100,8 +100,74 @@ public class GoogleMapsActivity extends AppCompatActivity implements GoogleMap.O
 //                .tiltGesturesEnabled(true);
 
         // Set up plant markers on map
-        LatLng plant23LatLng = new LatLng(-33.9156603, 151.2268734);
-        mMap.addMarker(new MarkerOptions().position(plant23LatLng).title("Mountain Cedar Wattle"));
+        LatLng plant1LatLng = new LatLng(-33.917298, 151.226410);
+        mMap.addMarker(new MarkerOptions().position(plant1LatLng).title("Hill's Fig"));
+
+        LatLng plant2LatLng = new LatLng(-33.916627, 151.226242);
+        mMap.addMarker(new MarkerOptions().position(plant2LatLng).title("Gymea Lily"));
+
+        LatLng plant3LatLng = new LatLng(-33.916239, 151.226673);
+        mMap.addMarker(new MarkerOptions().position(plant3LatLng).title("Broad-leaved Paperbark"));
+
+        LatLng plant4LatLng = new LatLng(-33.915813, 151.226503);
+        mMap.addMarker(new MarkerOptions().position(plant4LatLng).title("Crimson Bottlebrush"));
+
+        LatLng plant5LatLng = new LatLng(-33.915613, 151.226610);
+        mMap.addMarker(new MarkerOptions().position(plant5LatLng).title("Heath Banksia"));
+
+        LatLng plant6LatLng = new LatLng(-33.9156603, 151.2268734);
+        mMap.addMarker(new MarkerOptions().position(plant6LatLng).title("Mountain Cedar Wattle"));
+
+        LatLng plant7LatLng = new LatLng(-33.915810, 151.226889);
+        mMap.addMarker(new MarkerOptions().position(plant7LatLng).title("Native Mint"));
+
+        LatLng plant8LatLng = new LatLng(-33.916137, 151.228144);
+        mMap.addMarker(new MarkerOptions().position(plant8LatLng).title("Tuckeroo"));
+
+        LatLng plant9LatLng = new LatLng(-33.917090, 151.232118);
+        mMap.addMarker(new MarkerOptions().position(plant9LatLng).title("Prickly-leaved Tea Tree"));
+
+        LatLng plant10LatLng = new LatLng(-33.917239, 151.232071);
+        mMap.addMarker(new MarkerOptions().position(plant10LatLng).title("Water Vine"));
+
+        LatLng plant11LatLng = new LatLng(-33.917341, 151.232045);
+        mMap.addMarker(new MarkerOptions().position(plant11LatLng).title("Rock Lily"));
+
+        LatLng plant12LatLng = new LatLng(-33.917481, 151.232010);
+        mMap.addMarker(new MarkerOptions().position(plant12LatLng).title("Sandpaper Fig"));
+
+        LatLng plant13LatLng = new LatLng(-33.916864, 151.234317);
+        mMap.addMarker(new MarkerOptions().position(plant13LatLng).title("Burrawang"));
+
+        LatLng plant14LatLng = new LatLng(-33.9164057, 151.2343634);
+        mMap.addMarker(new MarkerOptions().position(plant14LatLng).title("Plum Pine / Brown Pine"));
+
+        LatLng plant15LatLng = new LatLng(-33.916681, 151.234676);
+        mMap.addMarker(new MarkerOptions().position(plant15LatLng).title("Tussock Grass"));
+
+        LatLng plant16LatLng = new LatLng(-33.9168536, 151.2347782);
+        mMap.addMarker(new MarkerOptions().position(plant16LatLng).title("Cabbage Tree Palm"));
+
+        LatLng plant17LatLng = new LatLng(-33.9179983, 151.2347711);
+        mMap.addMarker(new MarkerOptions().position(plant17LatLng).title("Bolwarra"));
+
+        LatLng plant18LatLng = new LatLng(-33.917949, 151.234529);
+        mMap.addMarker(new MarkerOptions().position(plant18LatLng).title("Blue Flax Lily / Blueberry Lily"));
+
+        LatLng plant19LatLng = new LatLng(-33.917927, 151.234285);
+        mMap.addMarker(new MarkerOptions().position(plant19LatLng).title("Saw Banksia / Old Man Banksia"));
+
+        LatLng plant20LatLng = new LatLng(-33.917801, 151.232152);
+        mMap.addMarker(new MarkerOptions().position(plant20LatLng).title("Spiny-headed Mat-rush"));
+
+        LatLng plant21LatLng = new LatLng(-33.917967, 151.232086);
+        mMap.addMarker(new MarkerOptions().position(plant21LatLng).title("Riberry"));
+
+        LatLng plant22LatLng = new LatLng(-33.918263, 151.232022);
+        mMap.addMarker(new MarkerOptions().position(plant22LatLng).title("Grass Tree"));
+
+        LatLng plant23LatLng = new LatLng(-33.917059, 151.230013);
+        mMap.addMarker(new MarkerOptions().position(plant23LatLng).title("Native Ginger"));
 
         LatLng plant24LatLng = new LatLng(-33.917237, 151.230294);
         mMap.addMarker(new MarkerOptions().position(plant24LatLng).title("Illawarra Flame Tree"));
@@ -132,8 +198,8 @@ public class GoogleMapsActivity extends AppCompatActivity implements GoogleMap.O
             }
         });
 
-        LatLng source = plant23LatLng;
-        LatLng destination = plant24LatLng;
+        LatLng source = plant1LatLng;
+        LatLng destination = plant2LatLng;
 
         showRoute.setOnClickListener(new View.OnClickListener() {
             @Override

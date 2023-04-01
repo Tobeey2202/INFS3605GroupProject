@@ -16,7 +16,7 @@ public class Trail {
                 "Coastal Eastern Australia","a1_fig");
         plantList.add(plant);
         plant = new Plant("2", "Dianella caerulea", "Blue Flax Lily / Blueberry Lily", "Lower Campus", "the sweet fruit can be eaten raw. Leaves are used to make a strong fibre while the purple juice from the berries is used for dying fibres.", "Long-lived wattle-tree, potentially reaching 30m, with a dense conical to medium domed canopy.",
-                "QLD, NSW, VIC","atwo_fig");
+                "QLD, NSW, VIC","a2_fig");
         plantList.add(plant);
         plant = new Plant("3", "Alpinia caerulea", "Native Ginger", "Lower Campus", "All parts of the plant are edible, both raw and cooked. the roots and the pulp of the berries have a ginger flavour. Leaves can be wrapped around meat and cooked in an earth oven. the large leaves can be used as thatch on shelters, and also to wrap food.", "Long-lived wattle-tree, potentially reaching 30m, with a dense conical to medium domed canopy.",
                 "QLD, NSW","a3_fig");
@@ -27,16 +27,16 @@ public class Trail {
         plant = new Plant("5", "Xanthorrhoea australis", "Grass Tree", "Lower Campus", "nectar comes from the long flowering spikes and the soft bases of young leaves are edible. the stalks from old f lowers and fruits can be used for tinder when making fire. the tall brown stalks can be used to make spear shafts and the soft wood provides a base for a f ire drill when making fire. tough leaves can be used as knives.", "Long-lived wattle-tree, potentially reaching 30m, with a dense conical to medium domed canopy.",
                 "All states","a5_fig");
         plantList.add(plant);
-        plant = new Plant("6", "Lomandra longifolia", "Spiny-headed  Mat-rush", "Lower Campus", "Raw leaf bases are a refreshing snack for the bush rambler. tufts of leaves pulled from the clump and the white inner bases can be chewed. they taste like fresh peas. the long slender leaves are excellent for making mats, baskets and food-collecting utensils. Flower heads soaked in water produce a  sweet drink.", "Long-lived wattle-tree, potentially reaching 30m, with a dense conical to medium domed canopy.",
+        plant = new Plant("6", "Lomandra longifolia", "Spiny-headed Mat-rush", "Lower Campus", "Raw leaf bases are a refreshing snack for the bush rambler. tufts of leaves pulled from the clump and the white inner bases can be chewed. they taste like fresh peas. the long slender leaves are excellent for making mats, baskets and food-collecting utensils. Flower heads soaked in water produce a  sweet drink.", "Long-lived wattle-tree, potentially reaching 30m, with a dense conical to medium domed canopy.",
                 "QLD, NSW, VIC, TAS, SA","a6_fig");
         plantList.add(plant);
         plant = new Plant("7", "Syzygium  luehmanni", "Riberry", "Lower Campus", "the white pulp of the fruit makes pleasant eating. the red fruits are often added to fruit salads or used to make jams and jellies.", "Long-lived wattle-tree, potentially reaching 30m, with a dense conical to medium domed canopy.",
                 "North coast QLD, NSW","a7_fig");
         plantList.add(plant);
-        plant = new Plant("8", "Podocarpus elatus", "Plum Pine/ Brown Pine", "Lower Campus", "the black juicy sweet fruit with its plum-like flavour is highly regarded by Aboriginal people. the seeds can also be eaten but have a resinous flavour. the fruit can be used for savoury or sweet dishes, such as chutneys, jams and desserts.", "Long-lived wattle-tree, potentially reaching 30m, with a dense conical to medium domed canopy.",
+        plant = new Plant("8", "Podocarpus elatus", "Plum Pine / Brown Pine", "Lower Campus", "the black juicy sweet fruit with its plum-like flavour is highly regarded by Aboriginal people. the seeds can also be eaten but have a resinous flavour. the fruit can be used for savoury or sweet dishes, such as chutneys, jams and desserts.", "Long-lived wattle-tree, potentially reaching 30m, with a dense conical to medium domed canopy.",
                 "QLD, NSW","a8_fig");
         plantList.add(plant);
-        plant = new Plant("9", "Banksia serrata", "Saw Banksia/ Old Man Banksia", "Lower Campus", "Flower spikes steeped in water produce a nectar-sweetened drink. Flowers also attract native animals and birds.", "Long-lived wattle-tree, potentially reaching 30m, with a dense conical to medium domed canopy.",
+        plant = new Plant("9", "Banksia serrata", "Saw Banksia / Old Man Banksia", "Lower Campus", "Flower spikes steeped in water produce a nectar-sweetened drink. Flowers also attract native animals and birds.", "Long-lived wattle-tree, potentially reaching 30m, with a dense conical to medium domed canopy.",
                 "QLD, NSW, VIC, TAS","a9_fig");
         plantList.add(plant);
         plant = new Plant("10", "Poa labillardieri", "Tussock Grass", "Lower Campus", "Roots were used in cooking.  today this grass is used in gardens in rockeries, near ponds and as a ground cover.", "Long-lived wattle-tree, potentially reaching 30m, with a dense conical to medium domed canopy.",
@@ -54,7 +54,7 @@ public class Trail {
         plant = new Plant("14", "Cissus antarctica", "Water Vine", "Lower Campus", "Mixed with nectar and water, the fruits are edible but have a watery, acidic taste. Unripe fruits have been traditionally used for stomach complaints while the stems can be used to make harnesses for climbing tall trees.", "Long-lived wattle-tree, potentially reaching 30m, with a dense conical to medium domed canopy.",
                 "QLD, NSW","a14_fig");
         plantList.add(plant);
-        plant = new Plant("15", "Melaleuca  styphelioides", "Prickly-leaved  Tea Tree", "Lower Campus", "the versatile bark can be used for roofing, blankets, rain capes, bandages, plates, caulking for canoes, rafts, baby slings and as torches to smoke away mosquitoes. Leaves can be crushed and sniffed for colds and headaches. An infusion of leaves makes a wash for skin irritants. the nectar-filled flowers can be soaked in water for a drink.", "Long-lived wattle-tree, potentially reaching 30m, with a dense conical to medium domed canopy.",
+        plant = new Plant("15", "Melaleuca  styphelioides", "Prickly-leaved Tea Tree", "Lower Campus", "the versatile bark can be used for roofing, blankets, rain capes, bandages, plates, caulking for canoes, rafts, baby slings and as torches to smoke away mosquitoes. Leaves can be crushed and sniffed for colds and headaches. An infusion of leaves makes a wash for skin irritants. the nectar-filled flowers can be soaked in water for a drink.", "Long-lived wattle-tree, potentially reaching 30m, with a dense conical to medium domed canopy.",
                 "QLD, NSW","a15_fig");
         plantList.add(plant);
         plant = new Plant("16", "Ficus hillii", "Hill's Fig", "Lower Campus", "the succulent figs are a popular and tasty fruit.", "It is generally a very resilient tree, both drought and shade tolerant. It is excellent for hedging or screening or as a pruned specimen to maintain size and shape. Alternatively, it is suitable for ornamental or shade tree applications.",
@@ -69,13 +69,13 @@ public class Trail {
         plant = new Plant("19", "Prostanthera ovalifolia", "Native Mint", "Lower Campus", "Indigenous people have used the leaves to treat colds and headaches. the leaves are crushed and placed on the temple to relieve headaches, or infused in hot water as an inhalant, or used externally. the leaves are antibacterial, antifungal and carminative. native Mint can also be used with the foods that are traditionally accompanied by mint.", "Long-lived wattle-tree, potentially reaching 30m, with a dense conical to medium domed canopy.",
                 "NSW, VIC, TAS","a19_fig");
         plantList.add(plant);
-        plant = new Plant("20", "Banksia ericifolia", "Banksia", "Lower Campus", "Flower spikes can be steeped in water and the nectar-sweetened water drunk. Flowers also attract native animals and birds.", "Long-lived wattle-tree, potentially reaching 30m, with a dense conical to medium domed canopy.",
+        plant = new Plant("20", "Banksia ericifolia", "Heath Banksia", "Lower Campus", "Flower spikes can be steeped in water and the nectar-sweetened water drunk. Flowers also attract native animals and birds.", "Long-lived wattle-tree, potentially reaching 30m, with a dense conical to medium domed canopy.",
                 "NSW","a20_fig");
         plantList.add(plant);
         plant = new Plant("21", "Callistemon citrinus", "Crimson Bottlebrush", "Lower Campus", "the leaves are used as a tea substitute and have a delightfully refreshing f lavour. the common use is as a dye for wood. A tan dye is obtained from the f lowers and a cinnamon dye from the leaves.", "Long-lived wattle-tree, potentially reaching 30m, with a dense conical to medium domed canopy.",
                 "QLD, NSW, VIC","a21_fig");
         plantList.add(plant);
-        plant = new Plant("22", "Melaleuca  quinquenervia", "Paperbark", "Lower Campus", "the leaves can be steeped for sore throats and as a wash, while young leaves are either chewed as a treatment for head colds or brewed in warm water to make a liquid to treat headaches.", "Long-lived wattle-tree, potentially reaching 30m, with a dense conical to medium domed canopy.",
+        plant = new Plant("22", "Melaleuca  quinquenervia", "Broad-leaved Paperbark", "Lower Campus", "the leaves can be steeped for sore throats and as a wash, while young leaves are either chewed as a treatment for head colds or brewed in warm water to make a liquid to treat headaches.", "Long-lived wattle-tree, potentially reaching 30m, with a dense conical to medium domed canopy.",
                 "QLD, NSW","a22_fig");
         plantList.add(plant);
         plant = new Plant("23", "Doryanthes excelsa", "Gymea Lily", "Lower Campus", "the stems are roasted. they are cut when young and about half a metre tall, with a thickness similar to a person’s arm. the roots can also be roasted and made into a cake to be eaten cold.", "Long-lived wattle-tree, potentially reaching 30m, with a dense conical to medium domed canopy.",
@@ -84,7 +84,7 @@ public class Trail {
         plant = new Plant("24", "Eupomatia laurina", "Bolwarra", "Opposite of UNSW Bookshop", "the sticky sweep pulp coating the seeds is edible.", "Large tree of the family Malvaceae and is famous for the bright red bell-shaped flowers that often cover the whole tree when it is leafless.",
                 "Coastal QLD, NSW and VIC", "a24_fig");
         plantList.add(plant);
-        plant = new Plant("25", "Cabbage Tree Palm", "Cabbage Tree Palm", "Opposite of UNSW Bookshop", "The cabbage tree palm is traditional food for coastal Indigenous", "It did have value for early settlers (ornamental/for shade; copying Indigenous people by eating the hearts; and using the trunks for feeding troughs to cattle).",
+        plant = new Plant("25", "Livinstona australis", "Cabbage Tree Palm", "Opposite of UNSW Bookshop", "The cabbage tree palm is traditional food for coastal Indigenous", "It did have value for early settlers (ornamental/for shade; copying Indigenous people by eating the hearts; and using the trunks for feeding troughs to cattle).",
                 "QLD, VIC", "a25_fig");
         plantList.add(plant);
         return plantList;
@@ -108,11 +108,55 @@ public class Trail {
 
     public static ArrayList<LatLng> generateMarkerList() {
         ArrayList<LatLng> markerList = new ArrayList<>();
-        // plant 23
+        // plant 1 - hill's fig
+        markerList.add(new LatLng(-33.917298, 151.226410));
+        // plant 2 - gymea lily
+        markerList.add(new LatLng(-33.916627, 151.226242));
+        // plant 3 - broad-leaved paperbark
+        markerList.add(new LatLng(-33.916239, 151.226673));
+        // plant 4 - crimson bottlebrush
+        markerList.add(new LatLng(-33.915813, 151.226503));
+        // plant 5 - heath banksia
+        markerList.add(new LatLng(-33.915613, 151.226610));
+        // plant 6 - mountain cedar wattle
         markerList.add(new LatLng(-33.9156603, 151.2268734));
-        // plant 24
+        // plant 7 - native mint
+        markerList.add(new LatLng(-33.915810, 151.226889));
+        // plant 8 - tuckeroo
+        markerList.add(new LatLng(-33.916137, 151.228144));
+        // plant 9 - prickly-leaved tea tree
+        markerList.add(new LatLng(-33.917090, 151.232118));
+        // plant 10 - water vine
+        markerList.add(new LatLng(-33.917239, 151.232071));
+        // plant 11 - rock lily
+        markerList.add(new LatLng(-33.917341, 151.232045));
+        // plant 12 - sandpaper fig
+        markerList.add(new LatLng(-33.917481, 151.232010));
+        // plant 13 - burrawang
+        markerList.add(new LatLng(-33.916864, 151.234317));
+        // plant 14 - plum pine/ brown pine
+        markerList.add(new LatLng(-33.9164057, 151.2343634));
+        // plant 15 - tussock grass
+        markerList.add(new LatLng(-33.916681, 151.234676));
+        // plant 16 - cabbage tree palm
+        markerList.add(new LatLng(-33.9168536, 151.2347782));
+        // plant 17 - bolwarra
+        markerList.add(new LatLng(-33.9179983, 151.2347711));
+        // plant 18 - blue flax lily
+        markerList.add(new LatLng(-33.917949, 151.234529));
+        // plant 19 - saw banksia / old man banksia
+        markerList.add(new LatLng(-33.917927, 151.234285));
+        // plant 20 - spiny-headed mat-rush
+        markerList.add(new LatLng(-33.917801, 151.232152));
+        // plant 21 - riberry
+        markerList.add(new LatLng(-33.917967, 151.232086));
+        // plant 22 - grass tree
+        markerList.add(new LatLng(-33.918263, 151.232022));
+        // plant 23 - native ginger
+        markerList.add(new LatLng(-33.917059, 151.230013));
+        // plant 24 - illawarra flame tree
         markerList.add(new LatLng(-33.917237, 151.230294));
-        // plant 25
+        // plant 25 - port jackson fig
         markerList.add(new LatLng(-33.9173428, 151.2278755));
         return markerList;
     }
