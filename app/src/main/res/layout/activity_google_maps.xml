@@ -20,17 +20,27 @@
             android:id="@+id/showRoute"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="2dp"
             android:layout_weight="1"
             android:text="Show Trail"
-            android:layout_marginHorizontal="2dp"/>
+            android:textSize="11sp" />
 
         <Button
             android:id="@+id/hideRoute"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="2dp"
             android:layout_weight="1"
             android:text="Hide Trail"
-            android:layout_marginHorizontal="2dp"/>
+            android:textSize="11sp" />
+
+        <Button
+            android:id="@+id/btnMoreInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Plant Info"
+            android:textSize="11sp" />
     </LinearLayout>
 
     <androidx.fragment.app.FragmentContainerView

@@ -6,6 +6,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
@@ -54,9 +55,11 @@ public class GoogleMapsActivity extends AppCompatActivity implements GoogleMap.O
     private boolean permissionDenied = false;
     private GoogleMap mMap;
     private ActivityGoogleMapsBinding binding;
-    private Button showRoute, hideRoute;
+    private Button showRoute, hideRoute, btnMoreInfo;
     Polyline polylineFinal = null;
     GoogleMapOptions options = new GoogleMapOptions();
+
+    Plant plantToView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,7 +75,25 @@ public class GoogleMapsActivity extends AppCompatActivity implements GoogleMap.O
 
         showRoute = findViewById(R.id.showRoute);
         hideRoute = findViewById(R.id.hideRoute);
+        btnMoreInfo = findViewById(R.id.btnMoreInfo);
 
+        btnMoreInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                handleBtnMoreInfo();
+            }
+        });
+    }
+
+    //Used to link to plant detail page
+    public void handleBtnMoreInfo(){
+        if(plantToView ==null) {
+            Toast.makeText(this, "You must select a plant first", Toast.LENGTH_LONG).show();
+        } else {
+            Intent intent = new Intent(this, PlantDetailActivity.class);
+            intent.putExtra("plantID", plantToView.getPlantId());
+            startActivity(intent);
+        }
     }
 
     /**
@@ -194,6 +215,7 @@ public class GoogleMapsActivity extends AppCompatActivity implements GoogleMap.O
                     }
                 }
                 m.setSnippet(selectedPlant.getPlantNameScientific()+"\n"+"\n"+selectedPlant.getDescription()+"\n"+"Traditional Use: "+selectedPlant.getTraditionalUse());
+                plantToView = selectedPlant;
                 return false;
             }
         });
