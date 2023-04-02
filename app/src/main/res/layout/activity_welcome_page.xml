@@ -8,7 +8,7 @@
     <TextView
         android:id="@+id/appTitle2"
         android:layout_width="315dp"
-        android:layout_height="146dp"
+        android:layout_height="wrap_content"
         android:fontFamily="@font/radley"
         android:text="Bush Tucker Trail"
         android:textAlignment="center"
@@ -23,7 +23,7 @@
         android:id="@+id/appTitle3"
         android:layout_width="320dp"
         android:layout_height="92dp"
-        android:layout_marginTop="142dp"
+        android:layout_marginTop="120dp"
         android:fontFamily="@font/radley"
         android:text="Welcome To"
         android:textAlignment="center"
@@ -39,8 +39,8 @@
         android:id="@+id/imageView4"
         android:layout_width="417dp"
         android:layout_height="126dp"
-        android:layout_marginStart="-2dp"
         android:layout_marginTop="-33dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/green_trail_background_pattern_snip" />
@@ -49,18 +49,20 @@
         android:id="@+id/imageView8"
         android:layout_width="417dp"
         android:layout_height="126dp"
-        android:layout_marginTop="640dp"
+        android:layout_marginBottom="-33dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/green_trail_background_pattern_snip" />
 
     <Button
         android:id="@+id/startButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="161dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="40dp"
         android:text="Start"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appTitle2" />
 </androidx.constraintlayout.widget.ConstraintLayout>
