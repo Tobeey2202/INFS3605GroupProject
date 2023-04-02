@@ -26,9 +26,10 @@ public class PlantDetailActivity extends AppCompatActivity {
     private SeekBar seekBar;
     private MediaPlayer mediaPlayer;
     boolean wasPlaying = false;
-    private Button btnPlay;
+    private Button btnPlay, btnViewOnMap;
     private Handler myHandler = new Handler();
     private ImageView plantDiagram;
+    private Plant selectedPlant;
 
     public static int oneTimeOnly =0;
     @Override
@@ -44,6 +45,7 @@ public class PlantDetailActivity extends AppCompatActivity {
 //
 //        profileButton = findViewById(R.id.detailProfileButton);
         btnPlay = findViewById(R.id.btnPlay);
+        btnViewOnMap = findViewById(R.id.btnViewPlantOnMap);
 
         //Fetch the key from the QR Code
         Intent intent = getIntent();
@@ -53,7 +55,7 @@ public class PlantDetailActivity extends AppCompatActivity {
 
         ArrayList<Plant> plantList = Trail.generatePlantList();
 
-        Plant selectedPlant = new Plant();
+        selectedPlant = new Plant();
         for(Plant p : plantList){
             if(p.getPlantId().equals(value)){
                 selectedPlant = p;
@@ -112,6 +114,20 @@ public class PlantDetailActivity extends AppCompatActivity {
                 handlePlayButton();
             }
         });
+
+        btnViewOnMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                viewPlantOnMap();
+            }
+        });
+    }
+
+    //Handle View On Map Intent
+    private void viewPlantOnMap(){
+        Intent intent = new Intent(this, GoogleMapsActivity.class);
+        intent.putExtra("plantName", selectedPlant.getPlantNameRegular());
+        startActivity(intent);
     }
 
 
