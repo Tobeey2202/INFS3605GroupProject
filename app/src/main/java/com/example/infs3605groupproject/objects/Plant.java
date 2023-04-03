@@ -1,5 +1,7 @@
 package com.example.infs3605groupproject.objects;
 
+import com.google.android.gms.maps.model.LatLng;
+
 public class Plant {
     private String plantId;
     private String plantNameScientific;
@@ -9,6 +11,8 @@ public class Plant {
     private String description;
     private String geographicDistribution;
     private String imagePath;
+    private LatLng latlng;
+    private Double distance;
 
     public Plant(String plantId, String plantNameScientific, String plantNameRegular, String location, String traditionalUse, String description, String geographicDistribution, String imagePath) {
         this.plantId = plantId;
@@ -88,5 +92,21 @@ public class Plant {
 
     public void setImagePath(String imagePath) {
         this.imagePath = imagePath;
+    }
+
+    public LatLng getLatlng() {
+        return latlng;
+    }
+
+    public void setLatlng(LatLng latlng) {
+        this.latlng = latlng;
+    }
+
+    public Double getDistance() {
+        return distance;
+    }
+
+    public void setDistance(Double distance) {
+        this.distance = distance;
     }
 }
