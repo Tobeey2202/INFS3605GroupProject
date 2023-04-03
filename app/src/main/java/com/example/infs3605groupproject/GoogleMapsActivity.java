@@ -244,7 +244,7 @@ public class GoogleMapsActivity extends AppCompatActivity implements GoogleMap.O
                         break;
                     }
                 }
-                m.setSnippet(selectedPlant.getPlantNameScientific()+"\n"+"\n"+selectedPlant.getDescription()+"\n"+"Traditional Use: "+selectedPlant.getTraditionalUse());
+                m.setSnippet(selectedPlant.getPlantNameScientific()+"\n"+"\n"+"Traditional Use: "+selectedPlant.getTraditionalUse());
                 //Added to allow linking of map and plant
                 plantToView = selectedPlant;
                 return false;

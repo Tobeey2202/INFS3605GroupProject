@@ -5,13 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -27,10 +28,8 @@ public class ProfileActivity extends AppCompatActivity {
     private Button logoutButton;
     GoogleSignInOptions gso;
     GoogleSignInClient gsc;
-    private ImageButton homeButton;
-    private ImageButton mapButton;
-    private ImageButton codeButton;
-    private ImageButton profileButton;
+    private TextView name,email;
+    private ImageView badge1,badge2,badge3,badge4,badge5,badge6,badge7,badge8;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,12 +37,51 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
 
         logoutButton = findViewById(R.id.logoutButton);
+        name = findViewById(R.id.name);
+        email = findViewById(R.id.email);
+        badge1 = findViewById(R.id.badge1);
 
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .build();
         gsc = GoogleSignIn.getClient(this,gso);
 
+        // Retrieving user information from firebase database
+        DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("Users")
+                .child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+
+        try{
+
+            userRef.child("name").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DataSnapshot> task) {
+                    name.setText(String.valueOf(task.getResult().getValue()));
+                }
+            });
+
+            userRef.child("email").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DataSnapshot> task) {
+                    email.setText(String.valueOf(task.getResult().getValue()));
+                }
+            });
+
+        } catch (Exception e) {
+            Toast.makeText(this, "User not logged in", Toast.LENGTH_SHORT);
+        }
+
+        userRef.child("badge1").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                Boolean badge1status = (Boolean) task.getResult().getValue();
+                if (badge1status==true) {
+                    String uri = "drawable/badge1";
+                    int imageResource = getResources().getIdentifier(uri, null, getPackageName());
+                    Drawable image = getResources().getDrawable(imageResource);
+                    badge1.setImageDrawable(image);
+                }
+            }
+        });
 
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override

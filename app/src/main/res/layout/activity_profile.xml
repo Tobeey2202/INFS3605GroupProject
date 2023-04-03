@@ -16,40 +16,52 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/txtScientificName2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/name"
+        android:layout_width="175dp"
+        android:layout_height="31dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:fontFamily="@font/radley"
-        android:text="Username"
+        android:text="Name"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textSize="20sp"
+        android:textSize="25sp"
         app:layout_constraintStart_toEndOf="@+id/profilePicture"
-        app:layout_constraintTop_toBottomOf="@+id/titleProfile" />
+        app:layout_constraintTop_toTopOf="@+id/profilePicture" />
+
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="163dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/radley"
+        android:text="Email"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/name"
+        app:layout_constraintTop_toBottomOf="@+id/name" />
 
     <ImageView
         android:id="@+id/profilePicture"
-        android:layout_width="163dp"
-        android:layout_height="164dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="40dp"
         android:contentDescription="profile picture"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleProfile"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:srcCompat="@drawable/profile" />
 
     <TextView
         android:id="@+id/titleProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="144dp"
-        android:layout_marginTop="-20dp"
+        android:layout_marginTop="-10dp"
         android:fontFamily="@font/radley"
         android:text="Profile"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#4C7C5C"
-        android:textSize="40dp"
+        android:textSize="35dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView7" />
 
@@ -57,7 +69,6 @@
         android:id="@+id/imageView7"
         android:layout_width="417dp"
         android:layout_height="126dp"
-        android:layout_marginStart="-2dp"
         android:layout_marginTop="-33dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -67,46 +78,97 @@
         android:id="@+id/logoutButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="104dp"
-        android:fontFamily="@font/radley"
+        android:layout_marginTop="50dp"
         android:text="@string/logout"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/radley"
-        android:text="POINTS"
-        android:textSize="25sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/badge5" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:fontFamily="@font/radley"
-        android:text="*Number"
-        android:textSize="50sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
-
-    <RatingBar
-        android:id="@+id/ratingBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="45dp"
-        android:contentDescription="rating bar"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:fontFamily="@font/radley"
+        android:text="Badges:"
+        android:textColor="#000000"
+        android:textSize="22sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profilePicture" />
+
+    <ImageView
+        android:id="@+id/badge1"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:srcCompat="@android:drawable/ic_lock_lock" />
+
+    <ImageView
+        android:id="@+id/badge2"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toEndOf="@+id/badge1"
+        app:layout_constraintTop_toTopOf="@+id/badge1"
+        app:srcCompat="@android:drawable/ic_lock_lock" />
+
+    <ImageView
+        android:id="@+id/badge3"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toEndOf="@+id/badge2"
+        app:layout_constraintTop_toTopOf="@+id/badge1"
+        app:srcCompat="@android:drawable/ic_lock_lock" />
+
+    <ImageView
+        android:id="@+id/badge4"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toEndOf="@+id/badge3"
+        app:layout_constraintTop_toTopOf="@+id/badge1"
+        app:srcCompat="@android:drawable/ic_lock_lock" />
+
+    <ImageView
+        android:id="@+id/badge5"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="@+id/badge1"
+        app:layout_constraintTop_toBottomOf="@+id/badge1"
+        app:srcCompat="@android:drawable/ic_lock_lock" />
+
+    <ImageView
+        android:id="@+id/badge6"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toEndOf="@+id/badge5"
+        app:layout_constraintTop_toTopOf="@+id/badge5"
+        app:srcCompat="@android:drawable/ic_lock_lock" />
+
+    <ImageView
+        android:id="@+id/badge7"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toEndOf="@+id/badge6"
+        app:layout_constraintTop_toTopOf="@+id/badge5"
+        app:srcCompat="@android:drawable/ic_lock_lock" />
+
+    <ImageView
+        android:id="@+id/badge8"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toEndOf="@+id/badge7"
+        app:layout_constraintTop_toTopOf="@+id/badge5"
+        app:srcCompat="@android:drawable/ic_lock_lock" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
