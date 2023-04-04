@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 public class PlantDetailActivity extends AppCompatActivity {
-    private TextView plantName, plantNameScientific, locationOnCampus, traditionalUses;
+    private TextView plantName, plantNameScientific, locationOnCampus, traditionalUses, geographicLocation, facilitiesInfo;
     private SeekBar seekBar;
     private MediaPlayer mediaPlayer;
     boolean wasPlaying = false;
@@ -30,6 +30,7 @@ public class PlantDetailActivity extends AppCompatActivity {
     private Handler myHandler = new Handler();
     private ImageView plantDiagram;
     private Plant selectedPlant;
+    private ImageView locationOnCampusPhoto;
 
     public static int oneTimeOnly =0;
     @Override
@@ -73,7 +74,12 @@ public class PlantDetailActivity extends AppCompatActivity {
         locationOnCampus = findViewById(R.id.locationOfPlant);
         traditionalUses = findViewById(R.id.traditionalUses);
         plantDiagram = findViewById(R.id.plantDiagram);
+        locationOnCampusPhoto = findViewById(R.id.locationOnCampusPhoto);
+        geographicLocation = findViewById(R.id.geographicLocation);
+        facilitiesInfo = findViewById(R.id.facilitiesInfo);
 
+        facilitiesInfo.setText(selectedPlant.getFacilitiesInfo());
+        geographicLocation.setText(selectedPlant.getGeographicDistribution());
         plantName.setText(selectedPlant.getPlantNameRegular());
         plantNameScientific.setText(selectedPlant.getPlantNameScientific());
         locationOnCampus.setText(selectedPlant.getLocation());
@@ -83,6 +89,11 @@ public class PlantDetailActivity extends AppCompatActivity {
         int imageResource = getResources().getIdentifier(uri, null, getPackageName());
         Drawable image = getResources().getDrawable(imageResource);
         plantDiagram.setImageDrawable(image);
+
+        String uri2 = "drawable/" + selectedPlant.getImagePath2();
+        int imageResource2 = getResources().getIdentifier(uri2, null, getPackageName());
+        Drawable image2 = getResources().getDrawable(imageResource2);
+        locationOnCampusPhoto.setImageDrawable(image2);
 
 
         seekBar = findViewById(R.id.audioSeekbar);

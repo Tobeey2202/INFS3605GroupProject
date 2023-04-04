@@ -14,6 +14,7 @@ public class Plant {
     private LatLng latlng;
     private Double distance;
     private String imagePath2;
+    private String facilitiesInfo;
 
     public Plant(String plantId, String plantNameScientific, String plantNameRegular, String location, String traditionalUse, String description, String geographicDistribution, String imagePath, String imagePath2) {
         this.plantId = plantId;
@@ -118,5 +119,13 @@ public class Plant {
 
     public void setDistance(Double distance) {
         this.distance = distance;
+    }
+
+    public String getFacilitiesInfo() {
+        return facilitiesInfo;
+    }
+
+    public void setFacilitiesInfo(String facilitiesInfo) {
+        this.facilitiesInfo = facilitiesInfo;
     }
 }
