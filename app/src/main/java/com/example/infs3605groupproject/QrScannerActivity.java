@@ -16,6 +16,7 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Size;
 import android.view.View;
 import android.widget.ImageButton;
@@ -23,7 +24,13 @@ import android.widget.Toast;
 
 import com.example.infs3605groupproject.QRCode.QRCodeFoundListener;
 import com.example.infs3605groupproject.QRCode.QRCodeImageAnalyzer;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.common.util.concurrent.ListenableFuture;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.concurrent.ExecutionException;
 
@@ -34,10 +41,8 @@ public class QrScannerActivity extends AppCompatActivity {
     private ListenableFuture<ProcessCameraProvider> cameraProviderFuture;
     private String qrCode;
     private boolean check = false;
-    private ImageButton homeButton;
-    private ImageButton mapButton;
-    private ImageButton codeButton;
-    private ImageButton profileButton;
+    DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("Users")
+            .child(FirebaseAuth.getInstance().getCurrentUser().getUid());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -120,6 +125,13 @@ public class QrScannerActivity extends AppCompatActivity {
                 //qrCodeFoundButton.setVisibility(View.VISIBLE);
                 System.out.println("QR Code Found: " + qrCode + "\n \n \n");
                 System.out.println("Check ==" + check);
+
+                try {
+                    userRef.child("badge" + qrCode).setValue(true);
+                } catch (Exception e){
+                    System.out.println("Error updating badge");
+                }
+
                 if(check ==false){
                     switchToPlantDetail();
                     check = true;

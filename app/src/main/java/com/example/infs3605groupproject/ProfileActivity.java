@@ -23,6 +23,9 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ProfileActivity extends AppCompatActivity {
 
     private Button logoutButton;
@@ -40,6 +43,13 @@ public class ProfileActivity extends AppCompatActivity {
         name = findViewById(R.id.name);
         email = findViewById(R.id.email);
         badge1 = findViewById(R.id.badge1);
+        badge2 = findViewById(R.id.badge2);
+        badge3 = findViewById(R.id.badge3);
+        badge4 = findViewById(R.id.badge4);
+        badge5 = findViewById(R.id.badge5);
+        badge6 = findViewById(R.id.badge6);
+        badge7 = findViewById(R.id.badge7);
+        badge8 = findViewById(R.id.badge8);
 
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
@@ -66,22 +76,37 @@ public class ProfileActivity extends AppCompatActivity {
                 }
             });
 
+            List<ImageView> badgeList = new ArrayList<>();
+            badgeList.add(badge1);
+            badgeList.add(badge2);
+            badgeList.add(badge3);
+            badgeList.add(badge4);
+            badgeList.add(badge5);
+            badgeList.add(badge6);
+            badgeList.add(badge7);
+            badgeList.add(badge8);
+
+            for (int i = 1; i < 9; i++) {
+                String badgeIndex = Integer.toString(i);
+                userRef.child("badge" + i).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DataSnapshot> task) {
+                        Boolean badgeStatus = (Boolean) task.getResult().getValue();
+                        if (badgeStatus==true) {
+                            String uri = "drawable/badge" + badgeIndex;
+                            int imageResource = getResources().getIdentifier(uri, null, getPackageName());
+                            Drawable image = getResources().getDrawable(imageResource);
+                            badgeList.get(Integer.parseInt(badgeIndex)-1).setImageDrawable(image);
+                        }
+                    }
+                });
+            }
+
+
         } catch (Exception e) {
-            Toast.makeText(this, "User not logged in", Toast.LENGTH_SHORT);
+            Toast.makeText(this, "Error getting user data", Toast.LENGTH_SHORT);
         }
 
-        userRef.child("badge1").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DataSnapshot> task) {
-                Boolean badge1status = (Boolean) task.getResult().getValue();
-                if (badge1status==true) {
-                    String uri = "drawable/badge1";
-                    int imageResource = getResources().getIdentifier(uri, null, getPackageName());
-                    Drawable image = getResources().getDrawable(imageResource);
-                    badge1.setImageDrawable(image);
-                }
-            }
-        });
 
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
