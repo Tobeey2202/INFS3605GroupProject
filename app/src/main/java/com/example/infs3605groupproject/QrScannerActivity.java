@@ -126,11 +126,20 @@ public class QrScannerActivity extends AppCompatActivity {
                 System.out.println("QR Code Found: " + qrCode + "\n \n \n");
                 System.out.println("Check ==" + check);
 
-                try {
-                    userRef.child("badge" + qrCode).setValue(true);
-                } catch (Exception e){
-                    System.out.println("Error updating badge");
-                }
+                userRef.child("badge" + qrCode).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DataSnapshot> task) {
+                        if (task.isSuccessful()) {
+                            Boolean currentStatus = (Boolean) task.getResult().getValue();
+                            if (currentStatus == false) {
+                                userRef.child("badge" + qrCode).setValue(true);
+                                Toast.makeText(QrScannerActivity.this, "Congrats! You just earned a new badge", Toast.LENGTH_SHORT).show();
+                            }
+                        } else {
+                            Toast.makeText(QrScannerActivity.this, "Error updating badge", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
 
                 if(check ==false){
                     switchToPlantDetail();
