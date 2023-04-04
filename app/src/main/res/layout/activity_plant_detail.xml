@@ -61,16 +61,20 @@
                     android:fontFamily="@font/radley"
                     android:text="Scientific Name"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:textColor="#000000"
+                    android:textSize="17sp"
                     app:layout_constraintStart_toStartOf="@+id/textview"
                     app:layout_constraintTop_toBottomOf="@+id/textview" />
 
                 <TextView
                     android:id="@+id/geographicLocation"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="168dp"
+                    android:layout_height="41dp"
                     android:fontFamily="@font/radley"
                     android:text="Geographic Location"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:textColor="#000000"
+                    android:textSize="17sp"
                     app:layout_constraintStart_toStartOf="@+id/geographicLocationTitle"
                     app:layout_constraintTop_toBottomOf="@+id/geographicLocationTitle" />
 
@@ -95,6 +99,7 @@
                     android:minHeight="48dp"
                     android:text="Location on Campus"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:textColor="#000000"
                     android:textSize="17sp"
                     app:layout_constraintStart_toStartOf="@+id/traditionalUses"
                     app:layout_constraintTop_toBottomOf="@+id/traditionalUses" />
@@ -123,6 +128,8 @@
                     android:fontFamily="@font/radley"
                     android:text="Text here"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:textColor="#000000"
+                    android:textSize="17sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/textView5"
                     app:layout_constraintTop_toBottomOf="@+id/textView5" />
@@ -143,8 +150,8 @@
                     android:id="@+id/locationOnCampusPhoto"
                     android:layout_width="247dp"
                     android:layout_height="127dp"
+                    app:layout_constraintStart_toStartOf="@+id/locationOfPlant"
                     app:layout_constraintTop_toBottomOf="@+id/locationOfPlant"
-                    tools:layout_editor_absoluteX="73dp"
                     tools:srcCompat="@tools:sample/avatars" />
 
                 <TextView
@@ -155,6 +162,7 @@
                     android:layout_marginTop="15dp"
                     android:fontFamily="@font/radley"
                     android:text="Scientific Name"
+                    android:textColor="#000000"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toEndOf="@+id/plantDiagram"
@@ -167,6 +175,7 @@
                     android:layout_marginTop="20dp"
                     android:fontFamily="@font/radley"
                     android:text="Geographic Location"
+                    android:textColor="#000000"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="@+id/scientificPlantName"
@@ -179,6 +188,7 @@
                     android:layout_marginTop="15dp"
                     android:fontFamily="@font/radley"
                     android:text="Nearby Facility"
+                    android:textColor="#000000"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="@+id/locationOfPlant"
@@ -189,9 +199,11 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="5dp"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginBottom="40dp"
                     android:fontFamily="@font/radley"
                     android:text="facilties info"
+                    android:textColor="#000000"
+                    android:textSize="17sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/facilitiesTitle"
