@@ -81,17 +81,15 @@
 
                 <TextView
                     android:id="@+id/locationOfPlant"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="176dp"
+                    android:layout_height="69dp"
                     android:layout_marginStart="19dp"
                     android:layout_marginTop="16dp"
-                    android:layout_marginEnd="73dp"
                     android:fontFamily="@font/radley"
                     android:inputType="textMultiLine"
                     android:minHeight="48dp"
                     android:text="Location on Campus"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/plantDiagram"
                     app:layout_constraintTop_toBottomOf="@+id/scientificPlantName" />
 
@@ -99,6 +97,7 @@
                     android:id="@+id/textView5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
                     android:layout_marginEnd="282dp"
                     android:fontFamily="@font/radley"
                     android:text="Traditional Uses"
@@ -112,7 +111,7 @@
                     android:id="@+id/traditionalUses"
                     android:layout_width="366dp"
                     android:layout_height="18dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="50dp"
                     android:layout_marginEnd="18dp"
                     android:fontFamily="@font/radley"
                     android:text="Text here"
@@ -126,7 +125,7 @@
                     android:layout_width="116dp"
                     android:layout_height="56dp"
                     android:layout_marginStart="20dp"
-                    android:layout_marginTop="56dp"
+                    android:layout_marginTop="96dp"
                     android:layout_marginEnd="84dp"
                     android:backgroundTint="#73A684"
                     android:scaleType="fitXY"
@@ -134,8 +133,20 @@
                     android:textSize="11sp"
                     app:iconPadding="11dp"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toEndOf="@+id/plantDiagram"
                     app:layout_constraintTop_toBottomOf="@+id/locationOfPlant" />
+
+                <ImageView
+                    android:id="@+id/locationOnCampusPhoto"
+                    android:layout_width="173dp"
+                    android:layout_height="86dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="28dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/plantDiagram"
+                    app:layout_constraintTop_toBottomOf="@+id/locationOfPlant"
+                    tools:srcCompat="@tools:sample/avatars" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

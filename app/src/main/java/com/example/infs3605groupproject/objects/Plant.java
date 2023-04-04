@@ -13,8 +13,9 @@ public class Plant {
     private String imagePath;
     private LatLng latlng;
     private Double distance;
+    private String imagePath2;
 
-    public Plant(String plantId, String plantNameScientific, String plantNameRegular, String location, String traditionalUse, String description, String geographicDistribution, String imagePath) {
+    public Plant(String plantId, String plantNameScientific, String plantNameRegular, String location, String traditionalUse, String description, String geographicDistribution, String imagePath, String imagePath2) {
         this.plantId = plantId;
         this.plantNameScientific = plantNameScientific;
         this.plantNameRegular = plantNameRegular;
@@ -23,6 +24,7 @@ public class Plant {
         this.description = description;
         this.geographicDistribution = geographicDistribution;
         this.imagePath = imagePath;
+        this.imagePath2 = imagePath2;
     }
 
     public Plant(){
@@ -92,6 +94,14 @@ public class Plant {
 
     public void setImagePath(String imagePath) {
         this.imagePath = imagePath;
+    }
+
+    public String getImagePath2() {
+        return imagePath2;
+    }
+
+    public void setImagePath2(String imagePath2) {
+        this.imagePath2 = imagePath2;
     }
 
     public LatLng getLatlng() {
