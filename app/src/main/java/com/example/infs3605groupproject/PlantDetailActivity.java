@@ -1,6 +1,7 @@
 package com.example.infs3605groupproject;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
@@ -31,6 +32,7 @@ public class PlantDetailActivity extends AppCompatActivity {
     private ImageView plantDiagram;
     private Plant selectedPlant;
     private ImageView locationOnCampusPhoto;
+    private ConstraintLayout audioLayout;
 
     public static int oneTimeOnly =0;
     @Override
@@ -38,13 +40,7 @@ public class PlantDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plant_detail);
 
-//        homeButton = findViewById(R.id.detailHomeButton);
-//
-//        mapButton = findViewById(R.id.detailMapButton);
-//
-//        codeButton = findViewById(R.id.detailCodeButton);
-//
-//        profileButton = findViewById(R.id.detailProfileButton);
+
         btnPlay = findViewById(R.id.btnPlay);
         btnViewOnMap = findViewById(R.id.btnViewPlantOnMap);
 
@@ -77,6 +73,7 @@ public class PlantDetailActivity extends AppCompatActivity {
         locationOnCampusPhoto = findViewById(R.id.locationOnCampusPhoto);
         geographicLocation = findViewById(R.id.geographicLocation);
         facilitiesInfo = findViewById(R.id.facilitiesInfo);
+        audioLayout = findViewById(R.id.plantAudioLayout);
 
         facilitiesInfo.setText(selectedPlant.getFacilitiesInfo());
         geographicLocation.setText(selectedPlant.getGeographicDistribution());
@@ -132,6 +129,13 @@ public class PlantDetailActivity extends AppCompatActivity {
                 viewPlantOnMap();
             }
         });
+
+        //Handle if the audio player is shown
+        if(selectedPlant.getAudio() == null){
+            audioLayout.setVisibility(View.INVISIBLE);
+        } else {
+            audioLayout.setVisibility(View.VISIBLE);
+        }
     }
 
     //Handle View On Map Intent
@@ -147,6 +151,12 @@ public class PlantDetailActivity extends AppCompatActivity {
             mediaPlayer = new MediaPlayer();
             //Replace next line with actual code to get the plant id for the media file
             String id = "ich_bin_ein";
+            if(selectedPlant.getAudio() == null){
+
+            } else {
+                id = selectedPlant.getAudio().getAudioFilePath();
+            }
+
 
             mediaPlayer = MediaPlayer.create(this, getResources().getIdentifier(id,
                     "raw", getPackageName()));

@@ -15,6 +15,7 @@ public class Plant {
     private Double distance;
     private String imagePath2;
     private String facilitiesInfo;
+    private Audio audio;
 
     public Plant(String plantId, String plantNameScientific, String plantNameRegular, String location, String traditionalUse, String description, String geographicDistribution, String imagePath, String imagePath2) {
         this.plantId = plantId;
@@ -127,5 +128,13 @@ public class Plant {
 
     public void setFacilitiesInfo(String facilitiesInfo) {
         this.facilitiesInfo = facilitiesInfo;
+    }
+
+    public Audio getAudio() {
+        return audio;
+    }
+
+    public void setAudio(Audio audio) {
+        this.audio = audio;
     }
 }
