@@ -32,6 +32,8 @@ import android.Manifest.permission;
 import android.annotation.SuppressLint;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import java.sql.SQLOutput;
@@ -56,7 +58,8 @@ public class GoogleMapsActivity extends AppCompatActivity implements GoogleMap.O
     private boolean permissionDenied = false;
     private GoogleMap mMap;
     private ActivityGoogleMapsBinding binding;
-    private Button showRoute, hideRoute, btnMoreInfo;
+    private Button btnMoreInfo;
+    private Switch routeSwitch;
     Polyline polylineFinal = null;
     GoogleMapOptions options = new GoogleMapOptions();
 
@@ -76,8 +79,7 @@ public class GoogleMapsActivity extends AppCompatActivity implements GoogleMap.O
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        showRoute = findViewById(R.id.showRoute);
-        hideRoute = findViewById(R.id.hideRoute);
+        routeSwitch = findViewById(R.id.routeSwitch);
         btnMoreInfo = findViewById(R.id.btnMoreInfo);
 
         btnMoreInfo.setOnClickListener(new View.OnClickListener() {
@@ -257,22 +259,18 @@ public class GoogleMapsActivity extends AppCompatActivity implements GoogleMap.O
         LatLng source = plant1LatLng;
         LatLng destination = plant2LatLng;
 
-        showRoute.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                new GetPathFromLocation(source, destination, new DirectionPointListener() {
-                    @Override
-                    public void onPath(PolylineOptions polyLine) {
-                        showPolyline(polyLine);
-                    }
-                }).execute();
-            }
-        });
-
-        hideRoute.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                polylineFinal.remove();
+        routeSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    new GetPathFromLocation(source, destination, new DirectionPointListener() {
+                        @Override
+                        public void onPath(PolylineOptions polyLine) {
+                            showPolyline(polyLine);
+                        }
+                    }).execute();
+                } else {
+                    polylineFinal.remove();
+                }
             }
         });
 
