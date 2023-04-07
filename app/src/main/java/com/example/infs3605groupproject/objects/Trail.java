@@ -19,6 +19,7 @@ public class Trail {
                 "Find out more: \n" +
                 "https://accommodation.unsw.edu.au/colleges/international-house ");
         plant.setAudio(new Audio("audio_mountain_cedar_wattle", "Mountain Cedar Wattle Recording"));
+        plant.setLatlng(new LatLng(-33.9156603, 151.2268734));
         plantList.add(plant);
 
         //BlueFlax Lily
@@ -26,6 +27,7 @@ public class Trail {
                 "QLD, NSW, VIC","a2_fig", "matthew_building");
         plant.setFacilitiesInfo("This plant is located behind UNSW’s Mathews Building. \n" +
                 "Inside the Mathews Building is the Mathews food court, Mathews theatres and the Pavillion. It includes CATS rooms and open study spaces for students to get work done and chill with friends. ");
+        plant.setLatlng(new LatLng(-33.917949, 151.234529));
         plantList.add(plant);
 
         //Native Ginger
@@ -40,6 +42,7 @@ public class Trail {
                 "For more information regarding Venue Hire, click below: \n" +
                 "https://bookings.hospitality.unsw.edu.au/kensington--new-south-wales/science-theatre.html ");
         plant.setAudio(new Audio("audio_native_ginger", "Native Ginger Recording"));
+        plant.setLatlng(new LatLng(-33.917059, 151.230013));
         plantList.add(plant);
 
         //Illawarra Flame Tree
@@ -53,6 +56,7 @@ public class Trail {
                 "\n" +
                 "For more information regarding Venue Hire, click below: \n" +
                 "https://bookings.hospitality.unsw.edu.au/kensington--new-south-wales/science-theatre.html ");
+        plant.setLatlng(new LatLng(-33.917237, 151.230294));
         plantList.add(plant);
 
         //Grass Tree
@@ -65,24 +69,28 @@ public class Trail {
                 "\n" +
                 "https://www.estate.unsw.edu.au/developments/unsw-public-art-campus ");
         plant.setAudio(new Audio("audio_grass_tree", "Grass Tree Recording"));
+        plant.setLatlng(new LatLng(-33.918263, 151.232022));
         plantList.add(plant);
 
         //Spiny-headed Mat-rush
         plant = new Plant("6", "Lomandra longifolia", "Spiny-headed Mat-rush", "Lower Campus", "Raw leaf bases are a refreshing snack for the bush rambler. Tufts of leaves pulled from the clump and the white inner bases can be chewed. They taste like fresh peas. The long slender leaves are excellent for making mats, baskets and food-collecting utensils. Flower heads soaked in water produce a sweet drink.", "Long-lived wattle-tree, potentially reaching 30m, with a dense conical to medium domed canopy.",
                 "QLD, NSW, VIC, TAS, SA","a6_fig", "roundhouse");
         plant.setFacilitiesInfo("N/A");
+        plant.setLatlng(new LatLng(-33.917801, 151.232152));
         plantList.add(plant);
 
         //Riberry
         plant = new Plant("7", "Syzygium luehmanni", "Riberry", "Lower Campus", "The white pulp of the fruit makes pleasant eating. The red fruits are often added to fruit salads or used to make jams and jellies.", "Long-lived wattle-tree, potentially reaching 30m, with a dense conical to medium domed canopy.",
                 "North coast QLD, NSW","a7_fig", "roundhouse");
         plant.setFacilitiesInfo("N/A");
+        plant.setLatlng(new LatLng(-33.917967, 151.232086));
         plantList.add(plant);
 
         //Plum Pine / Brown Pine
         plant = new Plant("8", "Podocarpus elatus", "Plum Pine / Brown Pine", "Near the Michael Birt Lawn", "The black juicy sweet fruit with its plum-like flavour is highly regarded by Aboriginal people. The seeds can also be eaten but have a resinous flavour. The fruit can be used for savoury or sweet dishes, such as chutneys, jams and desserts.", "Long-lived wattle-tree, potentially reaching 30m, with a dense conical to medium domed canopy.",
                 "QLD, NSW","a8_fig", "michael_burt_lawn");
         plant.setFacilitiesInfo("This plant is located near the Michael Birt Lawn. These law/gardens are a nice relaxing place to study, have lunch and hang out with your mates. ");
+        plant.setLatlng(new LatLng(-33.9164057, 151.2343634));
         plantList.add(plant);
 
         //Saw Banksia / Old Banksia
@@ -90,12 +98,14 @@ public class Trail {
                 "QLD, NSW, VIC, TAS","a9_fig", "matthew_building");
         plant.setFacilitiesInfo("This plant is located behind UNSW’s Mathews Building. \n" +
                 "Inside the Mathews Building is the Mathews food court, Mathews theatres and the Pavillion. It includes CATS rooms and open study spaces for students to get work done and chill with friends. ");
+        plant.setLatlng(new LatLng(-33.917927, 151.234285));
         plantList.add(plant);
 
         //Tossock Grass
         plant = new Plant("10", "Poa labillardieri", "Tussock Grass", "Located near the Michael Birt Lawn", "Roots were used in cooking. Today this grass is used in gardens in rockeries, near ponds and as a ground cover.", "Long-lived wattle-tree, potentially reaching 30m, with a dense conical to medium domed canopy.",
                 "QLD, NSW, VIC, TAS, SA","a10_fig", "michael_burt_lawn");
         plant.setFacilitiesInfo("This plant is located near the Michael Birt Lawn. These law/gardens are a nice relaxing place to study, have lunch and hang out with your mates.  ");
+        plant.setLatlng(new LatLng(-33.916681, 151.234676));
         plantList.add(plant);
 
         //Burrawang
@@ -105,6 +115,7 @@ public class Trail {
                 "\n" +
                 "More Info: \n" +
                 "https://www.ttw.com.au/projects/unsw-gate-9 ");
+        plant.setLatlng(new LatLng(-33.916864, 151.234317));
         plantList.add(plant);
 
         //Sandpaper Fig
@@ -118,6 +129,7 @@ public class Trail {
                 "\n" +
                 "https://www.indigenous.unsw.edu.au/\n");
         plant.setAudio(new Audio("audio_sandpaper_fig", "Sandpaper Fig Recording"));
+        plant.setLatlng(new LatLng(-33.917481, 151.232010));
         plantList.add(plant);
 
         //Rock Lily
@@ -130,6 +142,7 @@ public class Trail {
                 "Nura Gilli is UNSW’s Hub for Indigenous Programs, is an important hub on campus for First Nations students and staff alike and is now showcased in a fresh and engaging way. \n" +
                 "\n" +
                 "https://www.indigenous.unsw.edu.au/ ");
+        plant.setLatlng(new LatLng(-33.917341, 151.232045));
         plantList.add(plant);
 
         //Water Vine
@@ -142,9 +155,10 @@ public class Trail {
                 "Nura Gilli is UNSW’s Hub for Indigenous Programs, is an important hub on campus for First Nations students and staff alike and is now showcased in a fresh and engaging way. \n" +
                 "\n" +
                 "https://www.indigenous.unsw.edu.au/ ");
+        plant.setLatlng(new LatLng(-33.917239, 151.232071));
         plantList.add(plant);
 
-        //Prickly-leaved Ta Tree
+        //Prickly-leaved Tea Tree
         plant = new Plant("15", "Melaleuca styphelioides", "Prickly-leaved Tea Tree", "Located behind the Electrical Engineering Building", "The versatile bark can be used for roofing, blankets, rain capes, bandages, plates, caulking for canoes, rafts, baby slings and as torches to smoke away mosquitoes. Leaves can be crushed and sniffed for colds and headaches. An infusion of leaves makes a wash for skin irritants. The nectar-filled flowers can be soaked in water for a drink.", "Long-lived wattle-tree, potentially reaching 30m, with a dense conical to medium domed canopy.",
                 "QLD, NSW","a15_fig", "electrical_engineering_building");
         plant.setFacilitiesInfo("This plant is located behind the Electrical Engineering Building. \n" +
@@ -153,12 +167,14 @@ public class Trail {
                 "The left side of the EE building is Nura Gilli. \n" +
                 "Nura Gilli is UNSW’s Hub for Indigenous Programs, is an important hub on campus for First Nations students and staff alike and is now showcased in a fresh and engaging way. \n" +
                 "https://www.indigenous.unsw.edu.au/ ");
+        plant.setLatlng(new LatLng(-33.917090, 151.232118));
         plantList.add(plant);
 
         //Hill's Fig
         plant = new Plant("16", "Ficus hillii", "Hill's Fig", "Near the Tyree Energy Technologies Building", "The succulent figs are a popular and tasty fruit.", "It is generally a very resilient tree, both drought and shade tolerant. It is excellent for hedging or screening or as a pruned specimen to maintain size and shape. Alternatively, it is suitable for ornamental or shade tree applications.",
                 "All states","a16_fig", "tyree_energy_technology_building");
         plant.setFacilitiesInfo("Nearby building: Tyree Energy Technologies Building");
+        plant.setLatlng(new LatLng(-33.917298, 151.226410));
         plantList.add(plant);
 
         //Port Jackson Fig
@@ -168,6 +184,7 @@ public class Trail {
                 "In 2018, UNSW students and staff took on an experiment to help protect these heritage listed Fig Trees. To read more about this, click this link: \n" +
                 "https://newsroom.unsw.edu.au/news/science-tech/biology-experiment-helps-historic-unsw-fig-trees-put-down-new-roots ");
         plant.setAudio(new Audio("audio_port_jackson_fig", "Mountain Cedar Wattle Recording"));
+        plant.setLatlng(new LatLng(-33.9173428, 151.2278755));
         plantList.add(plant);
 
         //Tuckeroo
@@ -180,6 +197,7 @@ public class Trail {
                 "https://www.inside.unsw.edu.au/campus-life/alumni-park-revitalisation \n" +
                 "\n" +
                 "https://www.inside.unsw.edu.au/campus-life/alumni-park-being-brought-life-in-2021 ");
+        plant.setLatlng(new LatLng(-33.916137, 151.228144));
         plantList.add(plant);
 
         //Native Mint
@@ -189,6 +207,7 @@ public class Trail {
                 "International House, founded in 1968, is a multicultural college for more than 166 senior undergraduate and postgraduate residents from over 80 countries, including Australia. International House provides an ideal atmosphere for students seeking a quiet and mature environment as well as the opportunity to meet friendly students from all over the world. \n" +
                 "Find out more: \n" +
                 "https://accommodation.unsw.edu.au/colleges/international-house ");
+        plant.setLatlng(new LatLng(-33.915810, 151.226889));
         plantList.add(plant);
 
         //Health Banksia
@@ -200,6 +219,7 @@ public class Trail {
                 "Our facilities are available to not only the students and staff of UNSW but to the public as well and we would love the opportunity to support you on your health and fitness journey. \n" +
                 "To find out more: \n" +
                 "https://unswfac.com.au/ ");
+        plant.setLatlng(new LatLng(-33.915613, 151.226610));
         plantList.add(plant);
 
         //Crimson Bottlebrush
@@ -207,6 +227,7 @@ public class Trail {
                 "QLD, NSW, VIC","a21_fig", "aquatic_centre");
         plant.setFacilitiesInfo("This plant is located near the pool lawn. \n" +
                 "The pool lawn is in front of UNSW’s fitness and Aquatic Centre. \n");
+        plant.setLatlng(new LatLng(-33.915813, 151.226503));
         plantList.add(plant);
 
         //Broad-leaved Paperback
@@ -217,12 +238,14 @@ public class Trail {
                 "UNSW Roundhouse is Sydney's premier multi-purpose venue for all events. From live gigs, international conferences, film premieres, to the biggest and best. \n" +
                 "To find out more about what's on at Roundhouse, click the link below: \n" +
                 "https://www.arc.unsw.edu.au/roundhouse ");
+        plant.setLatlng(new LatLng(-33.916239, 151.226673));
         plantList.add(plant);
 
         //Gymea Lily
         plant = new Plant("23", "Doryanthes excelsa", "Gymea Lily", "Near the blockhouse and square house", "The stems are roasted. They are cut when young and about half a metre tall, with a thickness similar to a person’s arm. The roots can also be roasted and made into a cake to be eaten cold.", "Long-lived wattle-tree, potentially reaching 30m, with a dense conical to medium domed canopy.",
                 "NSW","a23_fig", "square_house_building");
         plant.setFacilitiesInfo("nearby buildings: blockhouse and square house ");
+        plant.setLatlng(new LatLng(-33.916627, 151.226242));
         plantList.add(plant);
 
         //Bolwarra
@@ -230,11 +253,14 @@ public class Trail {
                 "Coastal QLD, NSW and VIC", "a24_fig", "matthew_building");
         plant.setFacilitiesInfo("This plant is located behind UNSW’s Mathews Building. \n" +
                 "Inside the Mathews Building is the Mathews food court, Mathews theatres and the Pavillion. It includes CATS rooms and open study spaces for students to get work done and chill with friends. ");
+        plant.setLatlng(new LatLng(-33.9179983, 151.2347711));
         plantList.add(plant);
+
         //Cabbage Palm Tree
         plant = new Plant("25", "Livinstona australis", "Cabbage Tree Palm", "Sir John Clancy Auditorium", "The cabbage tree palm is traditional food for coastal Indigenous.", "It had value for early settlers as ornamental/for shade, copying Indigenous people by eating the hearts, and using the trunks for feeding troughs to cattle.",
                 "QLD, VIC", "a25_fig", "sir_john_clancy_building");
         plant.setFacilitiesInfo("Nearby building: Sir John Clancy Auditorium");
+        plant.setLatlng(new LatLng(-33.9168536, 151.2347782));
         plantList.add(plant);
         return plantList;
     }

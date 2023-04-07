@@ -45,6 +45,13 @@ public class PlantAdapter extends RecyclerView.Adapter<PlantAdapter.MyViewHolder
         holder.txtName.setText(plant.getPlantNameRegular());
         holder.itemView.setTag(plant.getPlantId());
 
+        if(plant.getDistance() != null){
+            holder.distance.setVisibility(View.VISIBLE);
+            holder.distance.setText("Distance: " + plant.getDistance());
+        } else{
+            holder.distance.setVisibility(View.INVISIBLE);
+        }
+
         Glide.with(context)
         .load(context.getResources()
         .getIdentifier(plant.getImagePath(), "drawable", context.getPackageName()))
@@ -58,7 +65,7 @@ public class PlantAdapter extends RecyclerView.Adapter<PlantAdapter.MyViewHolder
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        private TextView txtName, txtScientificName;
+        private TextView txtName, txtScientificName, distance;
         private ImageView imgView;
 
         public MyViewHolder(@NonNull View itemView) {
@@ -66,6 +73,7 @@ public class PlantAdapter extends RecyclerView.Adapter<PlantAdapter.MyViewHolder
             txtName = itemView.findViewById(R.id.txtViewPlantNameRecyclerView);
             txtScientificName = itemView.findViewById(R.id.txtViewPlantNameScientificRecyclerView);
             imgView = itemView.findViewById(R.id.plantImageRecyclerView);
+            distance = itemView.findViewById(R.id.txtViewDistance);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -78,5 +86,12 @@ public class PlantAdapter extends RecyclerView.Adapter<PlantAdapter.MyViewHolder
 
     public interface PlantRecyclerViewInterface{
         void onPlantClick(String plantID);
+    }
+
+
+    public void updateAdapter(List<Plant> newPlantList){
+        plantList.clear();
+        plantList.addAll(newPlantList);
+        notifyDataSetChanged();
     }
 }

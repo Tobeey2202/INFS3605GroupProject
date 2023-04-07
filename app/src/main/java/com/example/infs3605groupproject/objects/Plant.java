@@ -12,7 +12,7 @@ public class Plant {
     private String geographicDistribution;
     private String imagePath;
     private LatLng latlng;
-    private Double distance;
+    private String distance;
     private String imagePath2;
     private String facilitiesInfo;
     private Audio audio;
@@ -114,11 +114,11 @@ public class Plant {
         this.latlng = latlng;
     }
 
-    public Double getDistance() {
+    public String getDistance() {
         return distance;
     }
 
-    public void setDistance(Double distance) {
+    public void setDistance(String distance) {
         this.distance = distance;
     }
 

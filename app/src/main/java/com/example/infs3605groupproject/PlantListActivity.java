@@ -18,6 +18,10 @@ import android.os.Looper;
 import android.provider.Settings;
 import android.widget.Toast;
 
+import com.example.infs3605groupproject.DistanceMatrix.DistanceService;
+import com.example.infs3605groupproject.DistanceMatrix.Element;
+import com.example.infs3605groupproject.DistanceMatrix.ResultDistance;
+import com.example.infs3605groupproject.DistanceMatrix.Row;
 import com.example.infs3605groupproject.objects.Plant;
 import com.example.infs3605groupproject.objects.PlantAdapter;
 import com.example.infs3605groupproject.objects.Trail;
@@ -26,16 +30,26 @@ import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class PlantListActivity extends AppCompatActivity implements PlantAdapter.PlantRecyclerViewInterface {
     RecyclerView mRecyclerView;
     private List<Plant> plantList = new ArrayList<>();
     private PlantAdapter plantAdapter;
+    private LatLng currentLocation;
+    private String distance;
 
     FusedLocationProviderClient mFusedLocationClient;
     int PERMISSION_ID = 44;
@@ -59,6 +73,61 @@ public class PlantListActivity extends AppCompatActivity implements PlantAdapter
         // method to get the location
         getLastLocation();
 
+
+        //System.out.println("Testing Gson" + getPlantDistanceFake());
+        //gsontest();
+
+
+
+    }
+
+    public void gsontest(){
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://maps.googleapis.com/maps/api/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        String sourceLatLng = "-33.915813, 151.216503";
+        String destinationLatLng = "-33.915813, 151.226503";
+
+
+
+        DistanceService service = retrofit.create(DistanceService.class);
+        String API_KEY = "AIzaSyBK_AP1PzxvFOgjbAMH7IwKYno03JGpZ_U";
+        Call<ResultDistance> responseCall = service.getDistance(API_KEY, sourceLatLng, destinationLatLng);
+
+        System.out.println("https://maps.googleapis.com/" + "maps/api/distancematrix/" + "json?origins="+sourceLatLng+"&destinations="+destinationLatLng+"&key="+ API_KEY);
+        responseCall.enqueue(new Callback<ResultDistance>() {
+            @Override
+            public void onResponse(Call<ResultDistance> call, Response<ResultDistance> response) {
+                ResultDistance myData = response.body();
+                if("OK".equalsIgnoreCase(myData.getStatus())){
+                    List<Row> row = response.body().getRows();
+                    Element element = row.get(0).getElements().get(0);
+                    String distance = element.getDistance().getText();
+                    System.out.println("Gson retrofit Test " + distance);
+                }
+
+
+            }
+
+            @Override
+            public void onFailure(Call<ResultDistance> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), "Oops something went wrong with the API call", Toast.LENGTH_SHORT);
+            }
+        });
+    }
+
+
+    public static String getPlantDistanceFake(){
+        Gson gson = new Gson();
+        String jsonResponse = "{ \"destination_addresses\" : [ \"International House, Kensington NSW 2052, Australia\" ], \"origin_addresses\" : [ \"Village Green, University Mall, UNSW Sydney, Kensington NSW 2052, Australia\" ], \"rows\" : [ { \"elements\" : [ { \"distance\" : { \"text\" : \"1.6 km\", \"value\" : 1648 }, \"duration\" : { \"text\" : \"7 mins\", \"value\" : 444 }, \"status\" : \"OK\" } ] } ], \"status\" : \"OK\" }";
+        ResultDistance response = gson.fromJson(jsonResponse, ResultDistance.class);
+
+        List<Row> row = response.getRows();
+        Element element = row.get(0).getElements().get(0);
+        String distance = element.getDistance().getText();
+        return distance;
     }
 
     @Override
@@ -93,6 +162,7 @@ public class PlantListActivity extends AppCompatActivity implements PlantAdapter
                         } else {
 //                            latitudeTextView.setText(location.getLatitude() + "");
 //                            longitTextView.setText(location.getLongitude() + "");
+                            printLocation(location.getLatitude(), location.getLongitude());
                         }
                     }
                 });
@@ -141,6 +211,9 @@ public class PlantListActivity extends AppCompatActivity implements PlantAdapter
     private void printLocation(Double lat, Double longt) {
         String message = lat + " " + longt;
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+        currentLocation = new LatLng(lat, longt);
+        System.out.println("location printed");
+        getDistances();
     }
 
     // method to check for permissions
@@ -187,5 +260,90 @@ public class PlantListActivity extends AppCompatActivity implements PlantAdapter
             getLastLocation();
         }
     }
+
+    //Iterate through the list and update all items with the distance
+    public void getDistances(){
+
+        System.out.println("Attempting to get distances");
+        Plant selectedPlant;
+        String destinationList =  "";
+        LatLng source = currentLocation;
+        for(int i = 0; i< plantList.size(); i++){
+            selectedPlant = plantList.get(i);
+            LatLng destination = selectedPlant.getLatlng();
+            String destinationLatLng = destination.toString().replaceAll(" ", "")
+                    .replaceAll("[(){}]", "")
+                    .replaceAll("lat/lng", "")
+                    .replaceAll(":", "");
+            if(destinationList.equals("")){
+                destinationList = destinationList + destinationLatLng;
+            } else {
+                destinationList = destinationList +"|" + destinationLatLng;
+            }
+        }
+
+        callDirection(source, destinationList);
+    }
+
+    public void callDirection(LatLng source, String destination){
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://maps.googleapis.com/maps/api/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        String sourceLatLng = source.toString().replaceAll(" ", "")
+                .replaceAll("[(){}]", "")
+                .replaceAll("lat/lng", "")
+                .replaceAll(":", "");
+//        String destinationLatLng = destination.toString().replaceAll(" ", "")
+//                .replaceAll("[(){}]", "")
+//                .replaceAll("lat/lng", "")
+//                .replaceAll(":", "");
+
+
+
+        DistanceService service = retrofit.create(DistanceService.class);
+        String API_KEY = "AIzaSyBK_AP1PzxvFOgjbAMH7IwKYno03JGpZ_U";
+        Call<ResultDistance> responseCall = service.getDistance(API_KEY, sourceLatLng, destination);
+
+        System.out.println("https://maps.googleapis.com/" + "maps/api/distancematrix/" + "json?origins="+sourceLatLng+"&destinations="+destination+"&key="+ API_KEY);
+        responseCall.enqueue(new Callback<ResultDistance>() {
+            @Override
+            public void onResponse(Call<ResultDistance> call, Response<ResultDistance> response) {
+                plantList = Trail.generatePlantList();
+                ResultDistance myData = response.body();
+                if("OK".equalsIgnoreCase(myData.getStatus())){
+                    List<Row> row = response.body().getRows();
+                    List<Element> elements = row.get(0).getElements();
+                    System.out.println("Element Size: " + elements.size());
+                    for(int i = 0; i <elements.size(); i++){
+                        Element selectedElement = elements.get(i);
+                        String distance = selectedElement.getDistance().getText();
+                        try{
+                            plantList.get(i).setDistance(distance);
+                        } catch (Exception e){
+                            System.out.println("Index Error for----------" + i);
+                        }
+
+                        System.out.println("Actual Distance" + distance);
+                    }
+
+                    plantAdapter.updateAdapter(plantList);
+
+
+                }
+
+
+            }
+
+            @Override
+            public void onFailure(Call<ResultDistance> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), "Oops something went wrong with the API call", Toast.LENGTH_SHORT);
+            }
+        });
+    }
+
+
 
 }
