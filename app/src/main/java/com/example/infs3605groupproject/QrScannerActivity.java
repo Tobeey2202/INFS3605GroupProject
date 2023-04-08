@@ -41,8 +41,6 @@ public class QrScannerActivity extends AppCompatActivity {
     private ListenableFuture<ProcessCameraProvider> cameraProviderFuture;
     private String qrCode;
     private boolean check = false;
-    DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("Users")
-            .child(FirebaseAuth.getInstance().getCurrentUser().getUid());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,20 +124,26 @@ public class QrScannerActivity extends AppCompatActivity {
                 System.out.println("QR Code Found: " + qrCode + "\n \n \n");
                 System.out.println("Check ==" + check);
 
-                userRef.child("badge" + qrCode).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<DataSnapshot> task) {
-                        if (task.isSuccessful()) {
-                            Boolean currentStatus = (Boolean) task.getResult().getValue();
-                            if (currentStatus == false) {
-                                userRef.child("badge" + qrCode).setValue(true);
-                                Toast.makeText(QrScannerActivity.this, "Congrats! You just earned a new badge", Toast.LENGTH_SHORT).show();
+                if (FirebaseAuth.getInstance().getCurrentUser() != null) {
+                    DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("Users")
+                            .child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+                    userRef.child("badge" + qrCode).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<DataSnapshot> task) {
+                            if (task.isSuccessful()) {
+                                Boolean currentStatus = (Boolean) task.getResult().getValue();
+                                if (currentStatus == false) {
+                                    userRef.child("badge" + qrCode).setValue(true);
+                                    Toast.makeText(QrScannerActivity.this, "Congrats! You just earned a new badge", Toast.LENGTH_SHORT).show();
+                                }
+                            } else {
+                                Toast.makeText(QrScannerActivity.this, "Error updating badge", Toast.LENGTH_SHORT).show();
                             }
-                        } else {
-                            Toast.makeText(QrScannerActivity.this, "Error updating badge", Toast.LENGTH_SHORT).show();
                         }
-                    }
-                });
+                    });
+                } else if (FirebaseAuth.getInstance().getCurrentUser() == null) {
+                    Toast.makeText(QrScannerActivity.this, "You need to log in to collect badges", Toast.LENGTH_SHORT).show();
+                }
 
                 if(check ==false){
                     switchToPlantDetail();

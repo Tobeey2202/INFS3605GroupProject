@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/googleText"
+    android:id="@+id/constraintLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
@@ -21,7 +21,7 @@
         android:id="@+id/appTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="@font/radley"
         android:text="Bush Tucker Trail"
         android:textColor="#73A684"
@@ -49,7 +49,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="20dp"
         android:hint="Email"
         android:textColorHint="#000000"
@@ -98,7 +98,7 @@
         android:id="@+id/loginButton"
         android:layout_width="207dp"
         android:layout_height="54dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:backgroundTint="#73A684"
         android:fontFamily="@font/radley"
         android:text="Login"
@@ -107,19 +107,47 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/outlinedPassField" />
 
-    <TextView
-        android:id="@+id/signUp"
+    <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:fontFamily="@font/radley"
-        android:text="Not a member? Register here!"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        android:textStyle="bold"
+        android:layout_marginTop="40dp"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rememberBox" />
+        app:layout_constraintTop_toBottomOf="@+id/rememberBox">
+
+        <TextView
+            android:id="@+id/signUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/radley"
+            android:text="Register here"
+            android:textColor="#1B7CC8"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textOr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/radley"
+            android:text=" or "
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/guestLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/radley"
+            android:text="Login as a guest"
+            android:textColor="#1B7CC8"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -142,10 +170,10 @@
         android:id="@+id/googleSignIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="35dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signUp" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <CheckBox
         android:id="@+id/rememberBox"

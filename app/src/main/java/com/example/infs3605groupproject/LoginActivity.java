@@ -36,7 +36,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private TextView signUp;
+    private TextView signUp, guestLogin;
     private EditText emailField, passwordField;
     private Button login;
     private SignInButton googleSignIn;
@@ -55,6 +55,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         signUp = findViewById(R.id.signUp);
         signUp.setOnClickListener(this);
+
+        guestLogin = findViewById(R.id.guestLogin);
+        guestLogin.setOnClickListener(this);
 
         login = findViewById(R.id.loginButton);
         login.setOnClickListener(this);
@@ -116,6 +119,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             case R.id.googleSignIn:
                 googleLogin();
                 break;
+
+            case R.id.guestLogin:
+                startActivity(new Intent(this,MainActivity.class));
         }
     }
 

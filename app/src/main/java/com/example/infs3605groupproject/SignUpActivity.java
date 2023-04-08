@@ -17,6 +17,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class SignUpActivity extends AppCompatActivity implements View.OnClickListener{
@@ -127,6 +128,16 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                                             }
                                         }
                                     });
+                            DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("Users")
+                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+                            userRef.child("badge1").setValue(false);
+                            userRef.child("badge2").setValue(false);
+                            userRef.child("badge3").setValue(false);
+                            userRef.child("badge4").setValue(false);
+                            userRef.child("badge5").setValue(false);
+                            userRef.child("badge6").setValue(false);
+                            userRef.child("badge7").setValue(false);
+                            userRef.child("badge8").setValue(false);
                         }
 
                         else {

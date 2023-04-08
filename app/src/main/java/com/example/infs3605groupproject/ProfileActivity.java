@@ -31,7 +31,7 @@ public class ProfileActivity extends AppCompatActivity {
     private Button logoutButton;
     GoogleSignInOptions gso;
     GoogleSignInClient gsc;
-    private TextView name,email;
+    private TextView name,email,badgeInfo;
     private ImageView badge1,badge2,badge3,badge4,badge5,badge6,badge7,badge8;
 
     @Override
@@ -50,12 +50,28 @@ public class ProfileActivity extends AppCompatActivity {
         badge6 = findViewById(R.id.badge6);
         badge7 = findViewById(R.id.badge7);
         badge8 = findViewById(R.id.badge8);
+        badgeInfo = findViewById(R.id.badgeInfo);
 
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .build();
-        gsc = GoogleSignIn.getClient(this,gso);
+        gsc = GoogleSignIn.getClient(this, gso);
 
+        if (FirebaseAuth.getInstance().getCurrentUser() != null) {
+            setUpProfile();
+        } else if (FirebaseAuth.getInstance().getCurrentUser() == null) {
+            badgeInfo.setText("Create an account to collect badges");
+            logoutButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(ProfileActivity.this,LoginActivity.class));
+                }
+            });
+        }
+
+    }
+
+    public void setUpProfile() {
         // Retrieving user information from firebase database
         DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("Users")
                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid());
@@ -111,6 +127,7 @@ public class ProfileActivity extends AppCompatActivity {
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
                 gsc.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
@@ -126,5 +143,6 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
     }
+
 
 }
