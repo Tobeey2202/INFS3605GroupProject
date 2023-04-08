@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private TextView welcomeMsg, plantNameTv, quoteTv;
     private ImageView plantImageView;
+    private Button infoButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         plantNameTv = findViewById(R.id.plantNameTv);
         quoteTv = findViewById(R.id.quoteTv);
         plantImageView = findViewById(R.id.plantImageView);
+        infoButton = findViewById(R.id.infoButton);
 
 
         //Adding a try catch for testing purposes so the main page can be loaded without having a user logged in
@@ -82,6 +84,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             quoteOfDay = quoteList.get(index);
         }
         quoteTv.setText(quoteOfDay);
+
+        Plant finalPlantOfDay = plantOfDay;
+        infoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, PlantDetailActivity.class);
+                intent.putExtra("plantID", finalPlantOfDay.getPlantId());
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
