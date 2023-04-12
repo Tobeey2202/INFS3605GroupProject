@@ -319,7 +319,12 @@ public class PlantListActivity extends AppCompatActivity implements PlantAdapter
                     System.out.println("Element Size: " + elements.size());
                     for(int i = 0; i <elements.size(); i++){
                         Element selectedElement = elements.get(i);
-                        String distance = selectedElement.getDistance().getText();
+                        if(selectedElement.getDistance() == null){
+                            String distance = "N/A";
+                        } else {
+                            String distance = selectedElement.getDistance().getText();
+                        }
+
                         try{
                             plantList.get(i).setDistance(distance);
                         } catch (Exception e){
