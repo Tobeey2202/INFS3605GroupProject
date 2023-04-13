@@ -5,6 +5,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -23,7 +24,7 @@ import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 public class PlantDetailActivity extends AppCompatActivity {
-    private TextView plantName, plantNameScientific, locationOnCampus, traditionalUses, geographicLocation, facilitiesInfo;
+    private TextView plantName, plantNameScientific, locationOnCampus, traditionalUses, geographicLocation, facilitiesInfo, txtViewAudio;
     private SeekBar seekBar;
     private MediaPlayer mediaPlayer;
     boolean wasPlaying = false;
@@ -39,6 +40,7 @@ public class PlantDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plant_detail);
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
 
         btnPlay = findViewById(R.id.btnPlay);
@@ -74,6 +76,7 @@ public class PlantDetailActivity extends AppCompatActivity {
         geographicLocation = findViewById(R.id.geographicLocation);
         facilitiesInfo = findViewById(R.id.facilitiesInfo);
         audioLayout = findViewById(R.id.plantAudioLayout);
+        txtViewAudio = findViewById(R.id.txtViewAudio);
 
         facilitiesInfo.setText(selectedPlant.getFacilitiesInfo());
         geographicLocation.setText(selectedPlant.getGeographicDistribution());
@@ -151,10 +154,13 @@ public class PlantDetailActivity extends AppCompatActivity {
             mediaPlayer = new MediaPlayer();
             //Replace next line with actual code to get the plant id for the media file
             String id = "ich_bin_ein";
+            String title = "Ich Bin ein";
             if(selectedPlant.getAudio() == null){
 
             } else {
                 id = selectedPlant.getAudio().getAudioFilePath();
+                title = selectedPlant.getAudio().getAudioTitle();
+
             }
 
 
@@ -163,6 +169,7 @@ public class PlantDetailActivity extends AppCompatActivity {
             mediaPlayer.setLooping(false);
             seekBar.setMax(mediaPlayer.getDuration());
             seekBar.setProgress(0);
+            txtViewAudio.setText(title  + "-" + mediaPlayer.getDuration()/1000 + "s");
 
 
     }

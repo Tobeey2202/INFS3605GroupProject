@@ -16,6 +16,7 @@ public class Plant {
     private String imagePath2;
     private String facilitiesInfo;
     private Audio audio;
+    private int distanceInt;
 
     public Plant(String plantId, String plantNameScientific, String plantNameRegular, String location, String traditionalUse, String description, String geographicDistribution, String imagePath, String imagePath2) {
         this.plantId = plantId;
@@ -136,5 +137,13 @@ public class Plant {
 
     public void setAudio(Audio audio) {
         this.audio = audio;
+    }
+
+    public int getDistanceInt() {
+        return distanceInt;
+    }
+
+    public void setDistanceInt(int distanceInt) {
+        this.distanceInt = distanceInt;
     }
 }

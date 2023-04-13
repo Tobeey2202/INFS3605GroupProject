@@ -37,5 +37,48 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnFindNearestPlant" />
+
+    <Button
+        android:id="@+id/btnFindNearestPlant"
+        android:layout_width="135dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="-9dp"
+        android:layout_marginEnd="24dp"
+        android:text="Nearest Plant"
+        android:textSize="11sp"
+        app:icon="@android:drawable/ic_menu_mylocation"
+        app:iconPadding="3dp"
+        app:iconTint="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView9" />
+
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="177dp"
+        android:layout_height="44dp"
+        android:layout_marginEnd="20dp"
+        android:iconifiedByDefault="false"
+        android:queryHint="Plant Name"
+        app:layout_constraintBottom_toBottomOf="@+id/btnFindNearestPlant"
+        app:layout_constraintEnd_toStartOf="@+id/btnFindNearestPlant"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnFindNearestPlant"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/txtViewCountDown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="#000000"
+        android:textSize="9sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/btnFindNearestPlant"
+        app:layout_constraintEnd_toEndOf="@+id/btnFindNearestPlant"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="@+id/btnFindNearestPlant"
+        app:layout_constraintTop_toTopOf="@+id/btnFindNearestPlant" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,6 +5,8 @@ import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,11 +18,14 @@ import com.bumptech.glide.RequestBuilder;
 import com.bumptech.glide.RequestManager;
 import com.example.infs3605groupproject.R;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
-public class PlantAdapter extends RecyclerView.Adapter<PlantAdapter.MyViewHolder> {
+public class PlantAdapter extends RecyclerView.Adapter<PlantAdapter.MyViewHolder> implements Filterable {
 
-    private List<Plant> plantList;
+    private List<Plant> plantList, plantListFiltered;
     private PlantRecyclerViewInterface mInterface;
     private Context context;
 
@@ -28,6 +33,7 @@ public class PlantAdapter extends RecyclerView.Adapter<PlantAdapter.MyViewHolder
         this.plantList = plantList;
         this.mInterface = plantInterface;
         this.context = context;
+        plantListFiltered = plantList;
     }
 
     @NonNull
@@ -40,7 +46,7 @@ public class PlantAdapter extends RecyclerView.Adapter<PlantAdapter.MyViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull PlantAdapter.MyViewHolder holder, int position) {
-        Plant plant = plantList.get(position);
+        Plant plant = plantListFiltered.get(position);
         holder.txtScientificName.setText(plant.getPlantNameScientific());
         holder.txtName.setText(plant.getPlantNameRegular());
         holder.itemView.setTag(plant.getPlantId());
@@ -61,7 +67,7 @@ public class PlantAdapter extends RecyclerView.Adapter<PlantAdapter.MyViewHolder
 
     @Override
     public int getItemCount() {
-        return plantList.size();
+        return plantListFiltered.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
@@ -92,6 +98,58 @@ public class PlantAdapter extends RecyclerView.Adapter<PlantAdapter.MyViewHolder
     public void updateAdapter(List<Plant> newPlantList){
         plantList.clear();
         plantList.addAll(newPlantList);
+
+        plantListFiltered.clear();
+        plantListFiltered.addAll(newPlantList);
+        notifyDataSetChanged();
+    }
+
+    @Override
+    public Filter getFilter(){
+        System.out.println("FILTER METHOD CALLED \n \n ");
+        return new Filter(){
+            protected FilterResults performFiltering (CharSequence charSequence){
+                String query = charSequence.toString();
+                if(query.isEmpty()){
+                    plantListFiltered = plantList;
+
+                } else {
+                    ArrayList<Plant> filteredList = new ArrayList<>();
+                    for (Plant plant :plantList){
+                        if(plant.getPlantNameRegular().toLowerCase().contains(query.toLowerCase())){
+                            filteredList.add(plant);
+                            System.out.println(plant.getPlantNameRegular());
+                        }
+                    }
+                    plantListFiltered = filteredList;
+                }
+                FilterResults filterResults = new FilterResults();
+                filterResults.values = plantListFiltered;
+                return filterResults;
+            }
+
+            @Override
+            protected void publishResults (CharSequence charSequence, FilterResults filterResults) {
+
+                plantListFiltered = (ArrayList<Plant>) filterResults.values;
+
+                notifyDataSetChanged();
+
+            }
+        };
+
+    }
+
+    public void sort () {
+        if (plantListFiltered.size() > 0) {
+            System.out.println("Now sorting");
+            Collections.sort(plantListFiltered, new Comparator<Plant>() {
+                @Override
+                public int compare(Plant c1, Plant c2) {
+                    return Integer.valueOf(c1.getDistanceInt()).compareTo(Integer.valueOf(c2.getDistanceInt()));
+                }
+            });
+        }
         notifyDataSetChanged();
     }
 }

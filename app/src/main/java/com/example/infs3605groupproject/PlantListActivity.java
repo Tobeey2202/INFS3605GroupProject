@@ -10,12 +10,18 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.Looper;
 import android.provider.Settings;
+import android.view.View;
+import android.widget.Button;
+import android.widget.SearchView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.infs3605groupproject.DistanceMatrix.DistanceService;
@@ -50,6 +56,14 @@ public class PlantListActivity extends AppCompatActivity implements PlantAdapter
     private PlantAdapter plantAdapter;
     private LatLng currentLocation;
     private String distance;
+    private Button btnFindNearestPlant;
+    private long startTime, endTime;
+    private boolean apiReceived;
+    private SearchView searchView;
+    private Handler myHandler = new Handler();
+    private boolean sortCommand;
+    private TextView txtCountdown;
+
 
     FusedLocationProviderClient mFusedLocationClient;
     int PERMISSION_ID = 44;
@@ -59,12 +73,16 @@ public class PlantListActivity extends AppCompatActivity implements PlantAdapter
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plant_list);
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
         mRecyclerView = findViewById(R.id.rvPlantList);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         mRecyclerView.setLayoutManager(layoutManager);
 
         plantList = Trail.generatePlantList();
         plantAdapter = new PlantAdapter(plantList, this, this);
+        btnFindNearestPlant = findViewById(R.id.btnFindNearestPlant);
+        txtCountdown = findViewById(R.id.txtViewCountDown);
 
         mRecyclerView.setAdapter(plantAdapter);
 
@@ -76,6 +94,38 @@ public class PlantListActivity extends AppCompatActivity implements PlantAdapter
 
         //System.out.println("Testing Gson" + getPlantDistanceFake());
         //gsontest();
+
+        //Order and Update - ordering will be done at the end once the api call has been receievd
+        sortCommand = false;
+        btnFindNearestPlant.setEnabled(false);
+        btnFindNearestPlant.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                getDistances();
+                startTime = System.currentTimeMillis();
+
+                myHandler.postDelayed(checkCoolDown, 500);
+                sortCommand = true;
+                plantAdapter.sort();
+
+
+            }
+        });
+
+        SearchView searchView = findViewById(R.id.searchView);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
+            @Override
+            public boolean onQueryTextSubmit(String s){
+                plantAdapter.getFilter().filter(s);
+                return false;
+            }
+            @Override
+            public boolean onQueryTextChange(String s) {
+                plantAdapter.getFilter().filter(s);
+                return false;
+            }
+        });
 
 
 
@@ -210,7 +260,7 @@ public class PlantListActivity extends AppCompatActivity implements PlantAdapter
 
     private void printLocation(Double lat, Double longt) {
         String message = lat + " " + longt;
-        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+        //Toast.makeText(this, message, Toast.LENGTH_LONG).show();
         currentLocation = new LatLng(lat, longt);
         System.out.println("location printed");
         getDistances();
@@ -264,6 +314,12 @@ public class PlantListActivity extends AppCompatActivity implements PlantAdapter
     //Iterate through the list and update all items with the distance
     public void getDistances(){
 
+        //check to prevent repeaetd calls
+        if(System.currentTimeMillis() - startTime > 52000.0){
+            startTime = System.currentTimeMillis();
+        } else {
+            return;
+        }
         System.out.println("Attempting to get distances");
         Plant selectedPlant;
         String destinationList =  "";
@@ -319,22 +375,31 @@ public class PlantListActivity extends AppCompatActivity implements PlantAdapter
                     System.out.println("Element Size: " + elements.size());
                     for(int i = 0; i <elements.size(); i++){
                         Element selectedElement = elements.get(i);
-                        if(selectedElement.getDistance() == null){
-                            String distance = "N/A";
-                        } else {
-                            String distance = selectedElement.getDistance().getText();
-                        }
-
                         try{
+                            String distance = selectedElement.getDistance().getText();
                             plantList.get(i).setDistance(distance);
+
+
+                            int distanceInt = selectedElement.getDistance().getValue();
+                            plantList.get(i).setDistanceInt(distanceInt);
+                            System.out.println("Actual Distance: " + distance);
+
                         } catch (Exception e){
                             System.out.println("Index Error for----------" + i);
+                            Toast.makeText(getApplicationContext(), "Issue connecting with Google Directions", Toast.LENGTH_SHORT);
                         }
 
-                        System.out.println("Actual Distance" + distance);
+
                     }
 
                     plantAdapter.updateAdapter(plantList);
+                    startTime = System.currentTimeMillis();
+                    btnFindNearestPlant.setEnabled(true);
+                    apiReceived = true;
+
+                    if(sortCommand == true){
+                        plantAdapter.sort();
+                    }
 
 
                 }
@@ -348,6 +413,21 @@ public class PlantListActivity extends AppCompatActivity implements PlantAdapter
             }
         });
     }
+
+    private Runnable checkCoolDown = new Runnable() {
+        public void run() {
+            if(System.currentTimeMillis() - startTime > 60000.0){
+                btnFindNearestPlant.setEnabled(true);
+                txtCountdown.setVisibility(View.GONE);
+            } else {
+                btnFindNearestPlant.setEnabled(false);
+                txtCountdown.setVisibility(View.VISIBLE);
+                long seconds = 60000 - (System.currentTimeMillis() - startTime);
+                txtCountdown.setText("Cooldown " + seconds/1000  + " secs");
+            }
+            myHandler.postDelayed(this, 500);
+        }
+    };
 
 
 
