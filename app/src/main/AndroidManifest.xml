@@ -61,6 +61,8 @@
         <activity
             android:name=".PlantDetailActivity"
             android:exported="false" />
+            android:screenOrientation="portrait"
+
         <activity
             android:name=".QrScannerActivity"
             android:exported="true" />
