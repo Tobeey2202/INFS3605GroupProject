@@ -10,7 +10,7 @@
         android:layout_width="315dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/radley"
-        android:text="Bush Tucker Trail"
+        android:text="Amaroo"
         android:textAlignment="center"
         android:textColor="#73A684"
         android:textSize="50sp"
